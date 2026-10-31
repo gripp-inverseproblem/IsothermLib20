@@ -65,7 +65,7 @@ def main():
     ax.set(xlabel=r"Equilibrium concentration, $C_e$",
            ylabel=r"Scaled sensitivity, $\lambda_i$",
            title="Frenkel–Halsey–Hill numerical parameter sensitivities")
-    ax.legend(frameon=False, loc="center left", bbox_to_anchor=(1.02, 0.16))
+    ax.legend(frameon=False, loc="lower left")
     ax.grid(True, alpha=.20)
     ax.spines[["top", "right"]].set_visible(False)
     fig.savefig(args.output / f"{prefix}_sensitivity.svg",
