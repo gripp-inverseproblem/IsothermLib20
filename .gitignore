@@ -24,3 +24,6 @@
 /docs/latex/
 /docs/check/
 *.Identifier
+
+# Patch files used to transfer changes; never commit them.
+/*.patch
