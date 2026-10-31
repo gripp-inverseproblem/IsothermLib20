@@ -75,6 +75,6 @@
 #include "isotherm/models/FourParameters/Virial.hpp"
 #include "isotherm/models/FourParameters/WeberVanVliet.hpp"
 #include "isotherm/models/FourParameters/WilsonVST.hpp"
-#include "isotherm/models/FiveParameters/FrenkelHalseyHill.hpp"
+#include "isotherm/models/ThreeParameters/FrenkelHalseyHill.hpp"
 #include "isotherm/models/FiveParameters/FritzSchlunderV.hpp"
 #include "isotherm/models/SixParameters/TripleSiteLangmuir.hpp"

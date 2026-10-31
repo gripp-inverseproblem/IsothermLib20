@@ -172,6 +172,13 @@ if(TARGET example_ThreeParameters_FowlerGuggenheim)
                 --output "${CMAKE_CURRENT_SOURCE_DIR}/_static/figures")
     list(APPEND _isotherm_3p_targets example_ThreeParameters_FowlerGuggenheim)
 endif()
+if(TARGET example_ThreeParameters_FrenkelHalseyHill)
+    list(APPEND _isotherm_3p_commands
+        COMMAND "${_isotherm_sphinx_python}" "${PROJECT_SOURCE_DIR}/Examples/ThreeParameters/FrenkelHalseyHill/plot.py"
+                "$<TARGET_FILE:example_ThreeParameters_FrenkelHalseyHill>"
+                --output "${CMAKE_CURRENT_SOURCE_DIR}/_static/figures")
+    list(APPEND _isotherm_3p_targets example_ThreeParameters_FrenkelHalseyHill)
+endif()
 if(TARGET example_ThreeParameters_FritzSchlunder)
     list(APPEND _isotherm_3p_commands
         COMMAND "${_isotherm_sphinx_python}" "${PROJECT_SOURCE_DIR}/Examples/ThreeParameters/FritzSchlunder/plot.py"
@@ -349,13 +356,6 @@ endif()
 # I07: documentation plots generated from the C++20 executable for each new model.
 set(_isotherm_i07_commands "")
 set(_isotherm_i07_targets "")
-if(TARGET example_FiveParameters_FrenkelHalseyHill)
-    list(APPEND _isotherm_i07_commands
-        COMMAND "${_isotherm_sphinx_python}" "${PROJECT_SOURCE_DIR}/Examples/FiveParameters/FrenkelHalseyHill/plot.py"
-            "$<TARGET_FILE:example_FiveParameters_FrenkelHalseyHill>"
-            --output "${CMAKE_CURRENT_SOURCE_DIR}/_static/figures")
-    list(APPEND _isotherm_i07_targets example_FiveParameters_FrenkelHalseyHill)
-endif()
 if(TARGET example_FiveParameters_FritzSchlunderV)
     list(APPEND _isotherm_i07_commands
         COMMAND "${_isotherm_sphinx_python}" "${PROJECT_SOURCE_DIR}/Examples/FiveParameters/FritzSchlunderV/plot.py"
@@ -613,13 +613,6 @@ if(TARGET example_FourParameters_WilsonVST)
     list(APPEND _isotherm_remaining_figures_commands
         COMMAND "${_isotherm_sphinx_python}" "${PROJECT_SOURCE_DIR}/Examples/FourParameters/WilsonVST/plot.py"
             "$<TARGET_FILE:example_FourParameters_WilsonVST>"
-            --output "${CMAKE_CURRENT_SOURCE_DIR}/_static/figures")
-endif()
-if(TARGET example_FiveParameters_FrenkelHalseyHill)
-    list(APPEND _isotherm_remaining_figures_targets example_FiveParameters_FrenkelHalseyHill)
-    list(APPEND _isotherm_remaining_figures_commands
-        COMMAND "${_isotherm_sphinx_python}" "${PROJECT_SOURCE_DIR}/Examples/FiveParameters/FrenkelHalseyHill/plot.py"
-            "$<TARGET_FILE:example_FiveParameters_FrenkelHalseyHill>"
             --output "${CMAKE_CURRENT_SOURCE_DIR}/_static/figures")
 endif()
 if(TARGET example_FiveParameters_FritzSchlunderV)

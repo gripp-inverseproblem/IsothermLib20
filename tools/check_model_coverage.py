@@ -31,6 +31,26 @@ for group, count, name, path in models:
             f"Missing figure generator: {group}/{name}")
     require(f"models/{group}/{name}" in text("docs/scientific_catalogue/index.rst"),
             f"Unlisted model: {group}/{name}")
+# FHH is a three-parameter model: the obsolete five-parameter files must
+# not be rediscovered by CMake or mask the concentration-based implementation.
+require((ROOT / "include/isotherm/models/ThreeParameters/FrenkelHalseyHill.hpp").is_file(),
+        "FHH migration missing ThreeParameters header")
+for obsolete in (
+    "include/isotherm/models/FiveParameters/FrenkelHalseyHill.hpp",
+    "Examples/FiveParameters/FrenkelHalseyHill/main.cpp",
+    "Examples/FiveParameters/FrenkelHalseyHill/plot.py",
+    "IsothermTest/FiveParameters/FrenkelHalseyHill/test_frenkel_halsey_hill.cpp",
+):
+    require(not (ROOT / obsolete).exists(), f"Obsolete FHH file remains: {obsolete}")
+require('"isotherm/models/ThreeParameters/FrenkelHalseyHill.hpp"'
+        in text("include/isotherm/isotherm.hpp"),
+        "Umbrella header must expose the three-parameter FHH")
+require('example_FiveParameters_FrenkelHalseyHill'
+        not in text("docs/CMakeLists.txt"),
+        "Figure generator must not reference the old five-parameter FHH")
+require('example_ThreeParameters_FrenkelHalseyHill'
+        in text("docs/CMakeLists.txt"),
+        "Figure generator must reference the three-parameter FHH")
 # Specific Smith migration invariants.
 require((ROOT / "include/isotherm/models/FourParameters/Smith.hpp").is_file(),
         "Smith migration missing FourParameters header")
