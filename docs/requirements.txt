@@ -1,0 +1,16 @@
+#==============================================================================
+# Name        : requirements.txt
+# Authors     : Joao Flavio Vasconcellos
+# Version     : 2.0.0
+# Description : Sphinx, HTML parsing, vector maths and HTML/CSS PDF dependencies.
+#
+# Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
+# Licence     : MIT License (see LICENSE)
+# SPDX-License-Identifier: MIT
+#==============================================================================
+
+Sphinx>=7.2,<10
+pydata-sphinx-theme>=0.15,<1
+beautifulsoup4>=4.12,<5
+matplotlib>=3.8,<4
+WeasyPrint>=62,<70

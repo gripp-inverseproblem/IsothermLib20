@@ -1,0 +1,66 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 28,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "developer",
+      "displayName": "Developer (examples + tests)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/developer",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "ISOTHERM_BUILD_TESTS": "ON",
+        "ISOTHERM_BUILD_EXAMPLES": "ON",
+        "ISOTHERM_BUILD_DOCS": "ON"
+      }
+    },
+    {
+      "name": "release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "ISOTHERM_BUILD_TESTS": "OFF",
+        "ISOTHERM_BUILD_EXAMPLES": "ON",
+        "ISOTHERM_BUILD_DOCS": "OFF"
+      }
+    },
+    {
+      "name": "documentation",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/documentation",
+      "cacheVariables": {
+        "ISOTHERM_BUILD_DOCS": "ON",
+        "ISOTHERM_BUILD_TESTS": "OFF",
+        "ISOTHERM_BUILD_EXAMPLES": "OFF"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "developer",
+      "configurePreset": "developer"
+    },
+    {
+      "name": "release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "documentation",
+      "configurePreset": "documentation"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "developer",
+      "configurePreset": "developer",
+      "output": {
+        "outputOnFailure": true
+      }
+    }
+  ]
+}

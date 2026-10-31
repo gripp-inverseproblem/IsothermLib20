@@ -1,0 +1,14 @@
+#==============================================================================
+# Name        : IsothermPPConfig.cmake.in
+# Authors     : Joao Flavio Vasconcellos
+# Version     : 2.0.0
+# Description : Isotherm++ 2.0 project configuration.
+#
+# Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
+# Licence     : MIT License (see LICENSE)
+# SPDX-License-Identifier: MIT
+#==============================================================================
+
+@PACKAGE_INIT@
+include("${CMAKE_CURRENT_LIST_DIR}/IsothermPPTargets.cmake")
+check_required_components(IsothermPP)

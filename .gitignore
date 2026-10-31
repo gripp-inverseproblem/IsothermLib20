@@ -1,0 +1,26 @@
+#==============================================================================
+# Name        : .gitignore
+# Authors     : Joao Flavio Vasconcellos
+# Version     : 2.0.0
+# Description : Isotherm++ 2.0 project source and documentation.
+#
+# Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
+# Licence     : MIT License (see LICENSE)
+# SPDX-License-Identifier: MIT
+#==============================================================================
+
+/build/
+**/__pycache__/
+**/.pytest_cache/
+/docs/_build/
+**/output/
+*.egg-info/
+.DS_Store
+
+.venv-docs/
+.venv*/
+/docs/html/
+/docs/pdf/
+/docs/latex/
+/docs/check/
+*.Identifier

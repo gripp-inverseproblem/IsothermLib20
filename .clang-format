@@ -1,0 +1,16 @@
+#==============================================================================
+# Name        : .clang-format
+# Authors     : Joao Flavio Vasconcellos
+# Version     : 2.0.0
+# Description : C++ formatting that preserves documented include groupings.
+#
+# Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
+# Licence     : MIT License (see LICENSE)
+# SPDX-License-Identifier: MIT
+#==============================================================================
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 100
+SortIncludes: Never
+IncludeBlocks: Preserve
+PointerAlignment: Left
