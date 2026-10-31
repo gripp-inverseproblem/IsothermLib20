@@ -1,0 +1,40 @@
+From 152f260e580a531baec11414f5bb333c76bfa5d2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jo=C3=A3o=20Fl=C3=A1vio=20Vasconcellos?=
+ <jflavio@iprj.uerj.br>
+Date: Sat, 31 Oct 2026 18:00:06 -0300
+Subject: [PATCH] Index core/parameters.hpp in the documentation source browser
+
+The source browser rejects project headers that are not indexed, so the new
+include in isotherm.hpp made henry_source_browser fail.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01TPb3cnTWwjFPzsquiFXtjb
+---
+ docs/scripts/build_source_browser.py | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/docs/scripts/build_source_browser.py b/docs/scripts/build_source_browser.py
+index 9f06b94..17e5775 100644
+--- a/docs/scripts/build_source_browser.py
++++ b/docs/scripts/build_source_browser.py
+@@ -49,6 +49,7 @@ BASE_FILES = (
+     "include/isotherm/core/concepts.hpp",
+     "include/isotherm/core/validation.hpp",
+     "include/isotherm/core/evaluation.hpp",
++    "include/isotherm/core/parameters.hpp",
+     "include/isotherm/models/OneParameter/Henry.hpp",
+     "Examples/OneParameter/Henry/main.cpp",
+     "IsothermTest/OneParameter/Henry/test_henry.cpp",
+@@ -131,6 +132,9 @@ DEFINITIONS = {
+     "evaluate": ("include/isotherm/core/evaluation.hpp", r"\bReal evaluate\s*\("),
+     "derivative": ("include/isotherm/core/evaluation.hpp", r"\bReal derivative\s*\("),
+     "evaluate_into": ("include/isotherm/core/evaluation.hpp", r"\bvoid evaluate_into\s*\("),
++    "parameterised_model": ("include/isotherm/core/parameters.hpp", r"\bconcept parameterised_model\b"),
++    "parameter_array": ("include/isotherm/core/parameters.hpp", r"\busing parameter_array ="),
++    "with_parameter": ("include/isotherm/core/parameters.hpp", r"\bModel with_parameter\s*\("),
+     "Henry": ("include/isotherm/models/OneParameter/Henry.hpp", r"\bclass Henry\b"),
+     "AntiLangmuir": ("include/isotherm/models/TwoParameters/AntiLangmuir.hpp", r"\bclass AntiLangmuir\b"),
+     "DubininRadushkevich": ("include/isotherm/models/TwoParameters/DubininRadushkevich.hpp", r"\bclass DubininRadushkevich\b"),
+-- 
+2.43.0
+
