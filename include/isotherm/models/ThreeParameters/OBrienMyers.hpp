@@ -52,10 +52,20 @@ public:
                sigma_ * sigma_ * (1.0 - 4.0*z + z*z) /
                (2.0 * std::pow(1.0 + z, 4.0)));
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {qmax_, b_, sigma_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] OBrienMyers with_parameters(const std::array<Real, 3>& p) const {
+        return OBrienMyers{p[0], p[1], p[2]};
+    }
+
 private:
-    const Real qmax_;
-    const Real b_;
-    const Real sigma_;
+    Real qmax_;
+    Real b_;
+    Real sigma_;
     
 };
 } // namespace isotherm::models

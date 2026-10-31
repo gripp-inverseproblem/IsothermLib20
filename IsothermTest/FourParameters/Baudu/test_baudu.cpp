@@ -59,10 +59,10 @@ TEST(BauduModel, InvalidParametersAndInputs) {
     EXPECT_THROW((Baudu{5.0, 0.7, 1.7, 0.2}), isotherm::isotherm_error);
     EXPECT_THROW((Baudu{5.0, 0.7, 0.6, 1.0}), isotherm::isotherm_error);
     const Baudu model{5, 0.6, 0.4, 0.35};
-    EXPECT_THROW((isotherm::evaluate(model, -0.001)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.001)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
 }
 TEST(BauduModel, SpanEvaluation) {
     const Baudu model{5, 0.6, 0.4, 0.35};

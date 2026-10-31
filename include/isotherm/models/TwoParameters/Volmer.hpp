@@ -56,9 +56,19 @@ public:
         const Real theta = evaluate(x) / qmax_;
         return qmax_ * theta * (1.0 - theta) * (1.0 - theta) / x;
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 2> parameters() const noexcept {
+        return {qmax_, k_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Volmer with_parameters(const std::array<Real, 2>& p) const {
+        return Volmer{p[0], p[1]};
+    }
+
 private:
-    const Real qmax_;
-    const Real k_;
+    Real qmax_;
+    Real k_;
     
 };
 } // namespace isotherm::models

@@ -50,11 +50,21 @@ public:
         return q1_ * k1_ / std::pow(1.0 + k1_ * x, 2.0)
              + q2_ * k2_ / std::pow(1.0 + k2_ * x, 2.0);
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 4> parameters() const noexcept {
+        return {q1_, k1_, q2_, k2_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] DualSiteLangmuir with_parameters(const std::array<Real, 4>& p) const {
+        return DualSiteLangmuir{p[0], p[1], p[2], p[3]};
+    }
+
 private:
-    const Real q1_;
-    const Real k1_;
-    const Real q2_;
-    const Real k2_;
+    Real q1_;
+    Real k1_;
+    Real q2_;
+    Real k2_;
     
 };
 } // namespace isotherm::models

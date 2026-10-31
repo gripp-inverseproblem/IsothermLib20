@@ -46,6 +46,16 @@ public:
         return a_ / (x * log_slope);
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {a_, b_, c_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Kiselev with_parameters(const std::array<Real, 3>& p) const {
+        return Kiselev{p[0], p[1], p[2]};
+    }
+
 private:
     [[nodiscard]] Real coverage(Real x) const {
         require_nonnegative(x, "equilibrium concentration");

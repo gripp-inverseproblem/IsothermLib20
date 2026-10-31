@@ -54,6 +54,16 @@ public:
         return (q * k / ((n - x) * (1.0 + (k - 1.0) * x / n))) * (1.0 + x / (n - x) - (k - 1.0) * x / (n * (1.0 + (k - 1.0) * x / n)));
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {a_, b_, c_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] BrunauerEmmettTeller with_parameters(const std::array<Real, 3>& p) const {
+        return BrunauerEmmettTeller{p[0], p[1], p[2]};
+    }
+
 private:
     Real a_, b_, c_;
 };

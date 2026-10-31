@@ -73,6 +73,16 @@ public:
     [[nodiscard]] Real capacity() const noexcept { return capacity_; }
     [[nodiscard]] Real affinity() const noexcept { return affinity_; }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 2> parameters() const noexcept {
+        return {capacity_, affinity_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Langmuir with_parameters(const std::array<Real, 2>& p) const {
+        return Langmuir{p[0], p[1]};
+    }
+
 private:
     Real capacity_;
     Real affinity_;

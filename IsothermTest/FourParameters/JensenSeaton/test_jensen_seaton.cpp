@@ -49,10 +49,10 @@ TEST(JensenSeatonModel, IndependentFiniteDifferences) {
 }
 TEST(JensenSeatonModel, RejectsNonPhysicalInputs) {
     const JensenSeaton model{1.4, 3, 0.18, 1.4};
-    EXPECT_THROW(isotherm::evaluate(model, -0.1), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity()), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN()), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::derivative(model, 0.0), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
     EXPECT_THROW((JensenSeaton{0.0, 3, 0.18, 1.4}), isotherm::isotherm_error);
 }
 TEST(JensenSeatonModel, SpanBatchMatchesScalar) {

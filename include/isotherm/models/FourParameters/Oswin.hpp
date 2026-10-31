@@ -71,6 +71,16 @@ public:
                         * (Real{1} - water_activity));
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 4> parameters() const noexcept {
+        return {a_, b_, c_, d_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Oswin with_parameters(const std::array<Real, 4>& p) const {
+        return Oswin{p[0], p[1], p[2], p[3]};
+    }
+
 private:
     [[nodiscard]] Real amplitude_at(Real temperature_k) const {
         require_positive(temperature_k, "absolute temperature in kelvin");
@@ -86,10 +96,10 @@ private:
         return denom;
     }
 
-    const Real a_;
-    const Real b_;
-    const Real c_;
-    const Real d_;
+    Real a_;
+    Real b_;
+    Real c_;
+    Real d_;
 };
 } // namespace isotherm::models
 

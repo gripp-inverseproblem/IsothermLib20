@@ -49,10 +49,20 @@ public:
         const Real t = -std::log(x);
         return evaluate(x) * d_ * n_ * std::pow(t, n_ - 1.0) / x;
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {qmax_, d_, n_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] DubininAstakhov with_parameters(const std::array<Real, 3>& p) const {
+        return DubininAstakhov{p[0], p[1], p[2]};
+    }
+
 private:
-    const Real qmax_;
-    const Real d_;
-    const Real n_;
+    Real qmax_;
+    Real d_;
+    Real n_;
     
 };
 } // namespace isotherm::models

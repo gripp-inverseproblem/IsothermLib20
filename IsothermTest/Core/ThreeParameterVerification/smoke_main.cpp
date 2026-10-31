@@ -40,7 +40,7 @@ int main() {
     check("Kiselev", isotherm::evaluate(isotherm::models::Kiselev{5.0, 0.8, 0.6}, 0.8), 2.240755142422779);
     check("KobleCorrigan", isotherm::evaluate(isotherm::models::KobleCorrigan{5.0, 0.65, 1.3}, 0.8), 2.5169348817488491);
     check("LangmuirFreundlich", isotherm::evaluate(isotherm::models::LangmuirFreundlich{5.0, 0.65, 1.3}, 0.8), 1.6360076731367519);
-    check("MacMillanTeller", isotherm::evaluate(isotherm::models::MacMillanTeller{5.0, 0.7, 8.0}, 0.8), 0.14048082798725656);
+    check("MacMillanTeller", isotherm::evaluate(isotherm::models::MacMillanTeller{5.0, 0.7, 8.0}, 0.8), 3.3619980311644495);
     check("RadkePrausnitsI", isotherm::evaluate(isotherm::models::RadkePrausnitsI{5.0, 0.65, 1.15}, 0.8), 1.6063982481016781);
     check("RadkePrausnitsII", isotherm::evaluate(isotherm::models::RadkePrausnitsII{5.0, 0.65, 1.15}, 0.8), 1.7300084078508149);
     check("RadkePrausnitsIII", isotherm::evaluate(isotherm::models::RadkePrausnitsIII{5.0, 0.65, 1.3}, 0.8), 1.5123008808764822);

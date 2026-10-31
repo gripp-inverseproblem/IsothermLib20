@@ -57,11 +57,21 @@ public:
         const Real q = evaluate(x);
         return q / (x * (1.0 + a_ * q + 2.0*b_*q*q + 3.0*c_*q*q*q));
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 4> parameters() const noexcept {
+        return {kh_, a_, b_, c_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Virial with_parameters(const std::array<Real, 4>& p) const {
+        return Virial{p[0], p[1], p[2], p[3]};
+    }
+
 private:
-    const Real kh_;
-    const Real a_;
-    const Real b_;
-    const Real c_;
+    Real kh_;
+    Real a_;
+    Real b_;
+    Real c_;
     
 };
 } // namespace isotherm::models

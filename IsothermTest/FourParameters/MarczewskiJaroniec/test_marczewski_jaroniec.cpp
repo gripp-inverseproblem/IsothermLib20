@@ -58,10 +58,10 @@ TEST(MarczewskiJaroniecModel, InvalidParametersAndInputs) {
     EXPECT_THROW((MarczewskiJaroniec{5.0, 0.7, 0.5, -1.0}), isotherm::isotherm_error);
     EXPECT_THROW((MarczewskiJaroniec{5.0, 0.7, 0.8, 1.0}), isotherm::isotherm_error);
     const MarczewskiJaroniec model{5, 0.7, 0.8, 0.6};
-    EXPECT_THROW((isotherm::evaluate(model, -0.001)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.001)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
 }
 TEST(MarczewskiJaroniecModel, SpanEvaluation) {
     const MarczewskiJaroniec model{5, 0.7, 0.8, 0.6};

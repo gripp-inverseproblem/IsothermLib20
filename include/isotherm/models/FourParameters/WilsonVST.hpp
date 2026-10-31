@@ -55,11 +55,21 @@ public:
         const Real theta = evaluate(x) / qmax_;
         return qmax_ / (x * log_wilson_derivative(theta));
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 4> parameters() const noexcept {
+        return {qmax_, kh_, l1v_, lv1_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] WilsonVST with_parameters(const std::array<Real, 4>& p) const {
+        return WilsonVST{p[0], p[1], p[2], p[3]};
+    }
+
 private:
-    const Real qmax_;
-    const Real kh_;
-    const Real l1v_;
-    const Real lv1_;
+    Real qmax_;
+    Real kh_;
+    Real l1v_;
+    Real lv1_;
         [[nodiscard]] Real log_wilson(Real theta) const {
         const Real u = 1.0 - (1.0 - lv1_) * theta;
         const Real v = l1v_ + (1.0 - l1v_) * theta;

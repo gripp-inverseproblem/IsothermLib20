@@ -60,6 +60,16 @@ public:
         return b_;
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 4> parameters() const noexcept {
+        return {a_, b_, c_, water_activity_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Smith with_parameters(const std::array<Real, 4>& p) const {
+        return Smith{p[0], p[1], p[2], p[3]};
+    }
+
 private:
     [[nodiscard]] Real intercept_at(Real temperature_k) const {
         require_positive(temperature_k, "absolute temperature in kelvin");
@@ -68,10 +78,10 @@ private:
         return intercept;
     }
 
-    const Real a_;
-    const Real b_;
-    const Real c_;
-    const Real water_activity_;
+    Real a_;
+    Real b_;
+    Real c_;
+    Real water_activity_;
 };
 } // namespace isotherm::models
 

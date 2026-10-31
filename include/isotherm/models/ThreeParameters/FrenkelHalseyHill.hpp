@@ -59,6 +59,16 @@ public:
         return result;
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {q_m_, c_s_, s_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] FrenkelHalseyHill with_parameters(const std::array<Real, 3>& p) const {
+        return FrenkelHalseyHill{p[0], p[1], p[2]};
+    }
+
 private:
     [[nodiscard]] Real log_saturation_ratio(Real C_e) const {
         require_positive(C_e, "equilibrium concentration");
@@ -75,9 +85,9 @@ private:
         return std::log(c_s_) - std::log(C_e);
     }
 
-    const Real q_m_;
-    const Real c_s_;
-    const Real s_;
+    Real q_m_;
+    Real c_s_;
+    Real s_;
 };
 } // namespace isotherm::models
 

@@ -52,6 +52,16 @@ public:
         return evaluate(x) * k3_ / (x * (1.0 + z));
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 4> parameters() const noexcept {
+        return {qmax_, k1_, k2_, k3_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] MarczewskiJaroniec with_parameters(const std::array<Real, 4>& p) const {
+        return MarczewskiJaroniec{p[0], p[1], p[2], p[3]};
+    }
+
 private:
     Real qmax_, k1_, k2_, k3_;
 };

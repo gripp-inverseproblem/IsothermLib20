@@ -53,9 +53,9 @@ TEST(AntiLangmuirModel, IndependentFiniteDifferences) {
 }
 TEST(AntiLangmuirModel, RejectsNonPhysicalInputs) {
     const AntiLangmuir model{1.6, 0.12};
-    EXPECT_THROW(isotherm::evaluate(model, -0.1), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<Real>::infinity()), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<Real>::quiet_NaN()), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<Real>::quiet_NaN())), isotherm::isotherm_error);
     EXPECT_NEAR(isotherm::derivative(model, 0.0), Real{1.6}, 1e-14);
     EXPECT_THROW((AntiLangmuir{0.0, 0.12}), isotherm::isotherm_error);
 }

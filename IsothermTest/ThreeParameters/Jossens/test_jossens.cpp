@@ -51,9 +51,9 @@ TEST(JossensModel, RejectsInvalidParametersAndInputs) {
     EXPECT_THROW((Jossens{0.0, 0.65, 1.15}), isotherm::isotherm_error);
     EXPECT_THROW((Jossens{5, -1.0, 1.15}), isotherm::isotherm_error);
     const Jossens model{5, 0.65, 1.15};
-    EXPECT_THROW((isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
     
 }
 TEST(JossensModel, SpanEvaluation) {

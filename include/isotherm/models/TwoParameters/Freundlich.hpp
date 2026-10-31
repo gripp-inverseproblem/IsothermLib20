@@ -53,6 +53,16 @@ public:
         return evaluate(concentration) / (exponent_ * concentration);
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 2> parameters() const noexcept {
+        return {coefficient_, exponent_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Freundlich with_parameters(const std::array<Real, 2>& p) const {
+        return Freundlich{p[0], p[1]};
+    }
+
 private:
     Real coefficient_;
     Real exponent_;

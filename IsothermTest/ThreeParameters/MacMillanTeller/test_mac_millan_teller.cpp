@@ -60,9 +60,9 @@ TEST(MacMillanTellerModel, RejectsInvalidParametersAndInputs) {
     EXPECT_THROW((MacMillanTeller{0.0, 0.7, 8}), isotherm::isotherm_error);
     EXPECT_THROW((MacMillanTeller{5, -1.0, 8}), isotherm::isotherm_error);
     const MacMillanTeller model{5, 0.7, 8};
-    EXPECT_THROW((isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
     
 }
 TEST(MacMillanTellerModel, SpanEvaluation) {

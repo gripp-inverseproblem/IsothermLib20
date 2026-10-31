@@ -52,10 +52,10 @@ TEST(FowlerGuggenheimModel, RejectsInvalidParametersAndInputs) {
     EXPECT_THROW((FowlerGuggenheim{0.0, 0.8, 900}), isotherm::isotherm_error);
     EXPECT_THROW((FowlerGuggenheim{5, -1.0, 900}), isotherm::isotherm_error);
     const FowlerGuggenheim model{5, 0.8, 900};
-    EXPECT_THROW((isotherm::evaluate(model, -0.1, 298.15)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<Real>::infinity(), 298.15)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::derivative(model, 0.0, 298.15)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, 1.0, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1, 298.15)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<Real>::infinity(), 298.15)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0, 298.15)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, 1.0, 0.0)), isotherm::isotherm_error);
 }
 TEST(FowlerGuggenheimModel, EnergyUnitsAndKelvin) {
     const FowlerGuggenheim si{5, 0.8, 900};

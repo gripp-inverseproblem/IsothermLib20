@@ -46,6 +46,16 @@ public:
         return q * k * n * std::pow(x, n - 1.0) * std::exp(-k * std::pow(x, n));
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {a_, b_, c_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] BrouersSotolongo with_parameters(const std::array<Real, 3>& p) const {
+        return BrouersSotolongo{p[0], p[1], p[2]};
+    }
+
 private:
     Real a_, b_, c_;
 };

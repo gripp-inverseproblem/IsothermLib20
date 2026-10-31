@@ -51,10 +51,10 @@ TEST(VolmerModel, IndependentFiniteDifferences) {
 }
 TEST(VolmerModel, RejectsNonPhysicalInputs) {
     const Volmer model{4.5, 0.7};
-    EXPECT_THROW(isotherm::evaluate(model, -0.1), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<Real>::infinity()), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<Real>::quiet_NaN()), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::derivative(model, 0.0), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<Real>::quiet_NaN())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
     EXPECT_THROW((Volmer{0.0, 0.7}), isotherm::isotherm_error);
 }
 TEST(VolmerModel, SpanBatchMatchesScalar) {

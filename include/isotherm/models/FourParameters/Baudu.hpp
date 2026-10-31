@@ -53,6 +53,16 @@ public:
         return evaluate(x) / x * (k3_ + (1.0 - k2_) / (1.0 + z));
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 4> parameters() const noexcept {
+        return {qmax_, k1_, k2_, k3_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Baudu with_parameters(const std::array<Real, 4>& p) const {
+        return Baudu{p[0], p[1], p[2], p[3]};
+    }
+
 private:
     Real qmax_, k1_, k2_, k3_;
 };

@@ -53,6 +53,16 @@ public:
         return evaluate(concentration) / (2.0 * std::log(10.0) * concentration * denominator);
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 2> parameters() const noexcept {
+        return {coefficient_a_, coefficient_b_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] HarkinJura with_parameters(const std::array<Real, 2>& p) const {
+        return HarkinJura{p[0], p[1]};
+    }
+
 private:
     Real coefficient_a_;
     Real coefficient_b_;

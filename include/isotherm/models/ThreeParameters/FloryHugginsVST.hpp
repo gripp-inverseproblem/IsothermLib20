@@ -58,10 +58,20 @@ public:
                          alpha_ * alpha_ / std::pow(1.0 + alpha_ * theta, 2.0);
         return qmax_ / (x * d);
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {qmax_, kh_, alpha_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] FloryHugginsVST with_parameters(const std::array<Real, 3>& p) const {
+        return FloryHugginsVST{p[0], p[1], p[2]};
+    }
+
 private:
-    const Real qmax_;
-    const Real kh_;
-    const Real alpha_;
+    Real qmax_;
+    Real kh_;
+    Real alpha_;
     
 };
 } // namespace isotherm::models

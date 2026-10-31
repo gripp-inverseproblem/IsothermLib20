@@ -35,7 +35,7 @@ public:
     explicit Temkin(
         Real affinity, Real energy_constant,
         gas_constant_unit energy_unit = gas_constant_unit::joule_per_mole_kelvin)
-        : gas_constant_(molar_gas_constant(energy_unit)),
+        : energy_unit_(energy_unit), gas_constant_(molar_gas_constant(energy_unit)),
           affinity_(affinity), energy_constant_(energy_constant) {
         require_positive(affinity_, "Temkin affinity");
         require_positive(energy_constant_, "Temkin energy constant");
@@ -58,8 +58,19 @@ public:
         return gas_constant_ * temperature / (energy_constant_ * concentration);
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 2> parameters() const noexcept {
+        return {affinity_, energy_constant_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. The energy unit is kept. */
+    [[nodiscard]] Temkin with_parameters(const std::array<Real, 2>& p) const {
+        return Temkin{p[0], p[1], energy_unit_};
+    }
+
 private:
-    const Real gas_constant_;
+    gas_constant_unit energy_unit_;
+    Real gas_constant_;
     Real affinity_;
     Real energy_constant_;
 };

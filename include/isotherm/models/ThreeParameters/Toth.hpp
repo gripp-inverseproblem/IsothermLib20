@@ -46,6 +46,16 @@ public:
         return q / k / std::pow(1.0 / k + std::pow(x, n), 1.0 + 1.0 / n);
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {a_, b_, c_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Toth with_parameters(const std::array<Real, 3>& p) const {
+        return Toth{p[0], p[1], p[2]};
+    }
+
 private:
     Real a_, b_, c_;
 };

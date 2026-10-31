@@ -32,7 +32,7 @@ class FowlerGuggenheim final {
 public:
     FowlerGuggenheim(Real p1, Real p2, Real p3,
         gas_constant_unit energy_unit = gas_constant_unit::joule_per_mole_kelvin)
-        : gas_constant_(molar_gas_constant(energy_unit)), a_(p1), b_(p2), c_(p3) {
+        : energy_unit_(energy_unit), gas_constant_(molar_gas_constant(energy_unit)), a_(p1), b_(p2), c_(p3) {
         require_positive(a_, "FowlerGuggenheim a");
         require_positive(b_, "FowlerGuggenheim b");
         require_nonnegative(c_, "FowlerGuggenheim interaction energy");
@@ -50,6 +50,16 @@ public:
         return a_ / (x * log_slope);
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {a_, b_, c_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. The energy unit is kept. */
+    [[nodiscard]] FowlerGuggenheim with_parameters(const std::array<Real, 3>& p) const {
+        return FowlerGuggenheim{p[0], p[1], p[2], energy_unit_};
+    }
+
 private:
     [[nodiscard]] Real coverage(Real x, Real temperature) const {
         require_nonnegative(x, "equilibrium concentration");
@@ -61,7 +71,8 @@ private:
             return std::log(theta) - std::log1p(-theta) + theta * interaction;
         });
     }
-    const Real gas_constant_;
+    gas_constant_unit energy_unit_;
+    Real gas_constant_;
     Real a_, b_, c_;
 };
 } // namespace isotherm::models

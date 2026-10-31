@@ -51,12 +51,22 @@ public:
         const Real v = k2_ * std::pow(x, k4_);
         return evaluate(x) / x * (k3_ - k4_ * v / (k1_ + v));
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 5> parameters() const noexcept {
+        return {qmax_, k1_, k2_, k3_, k4_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] FritzSchlunderV with_parameters(const std::array<Real, 5>& p) const {
+        return FritzSchlunderV{p[0], p[1], p[2], p[3], p[4]};
+    }
+
 private:
-    const Real qmax_;
-    const Real k1_;
-    const Real k2_;
-    const Real k3_;
-    const Real k4_;
+    Real qmax_;
+    Real k1_;
+    Real k2_;
+    Real k3_;
+    Real k4_;
     
 };
 } // namespace isotherm::models

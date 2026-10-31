@@ -52,10 +52,20 @@ public:
         const Real dd = ka_ + 2.0 * kb_ * x;
         return qmax_ * (nd * d - n * dd) / (d * d);
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {qmax_, ka_, kb_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Quadratic with_parameters(const std::array<Real, 3>& p) const {
+        return Quadratic{p[0], p[1], p[2]};
+    }
+
 private:
-    const Real qmax_;
-    const Real ka_;
-    const Real kb_;
+    Real qmax_;
+    Real ka_;
+    Real kb_;
     
 };
 } // namespace isotherm::models

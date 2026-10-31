@@ -58,10 +58,10 @@ TEST(FritzSchlunderIVModel, InvalidParametersAndInputs) {
     EXPECT_THROW((FritzSchlunderIV{5.0, 0.7, 0.5, -1.0}), isotherm::isotherm_error);
     EXPECT_THROW((FritzSchlunderIV{5.0, 0.7, 0.9, 1.001}), isotherm::isotherm_error);
     const FritzSchlunderIV model{5, 0.7, 0.9, 0.6};
-    EXPECT_THROW((isotherm::evaluate(model, -0.001)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.001)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
 }
 TEST(FritzSchlunderIVModel, SpanEvaluation) {
     const FritzSchlunderIV model{5, 0.7, 0.9, 0.6};

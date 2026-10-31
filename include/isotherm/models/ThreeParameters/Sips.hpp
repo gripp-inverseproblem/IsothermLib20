@@ -46,6 +46,16 @@ public:
         return q * std::pow(k * x, 1.0 / n) / (n * x * std::pow(1.0 + std::pow(k * x, 1.0 / n), 2.0));
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {a_, b_, c_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Sips with_parameters(const std::array<Real, 3>& p) const {
+        return Sips{p[0], p[1], p[2]};
+    }
+
 private:
     Real a_, b_, c_;
 };

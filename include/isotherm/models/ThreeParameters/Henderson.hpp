@@ -57,10 +57,20 @@ public:
         return -evaluate(temperature_k) / (b_ * temperature_k);
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {a_, b_, water_activity_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Henderson with_parameters(const std::array<Real, 3>& p) const {
+        return Henderson{p[0], p[1], p[2]};
+    }
+
 private:
-    const Real a_;
-    const Real b_;
-    const Real water_activity_;
+    Real a_;
+    Real b_;
+    Real water_activity_;
 };
 } // namespace isotherm::models
 

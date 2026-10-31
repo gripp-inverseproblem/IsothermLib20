@@ -68,11 +68,11 @@ TEST(ThreeParameterImplicit, EquationResiduals) {
         EXPECT_NEAR(theta_h/(1.-theta_h)*std::exp(theta_h/(1.-theta_h)-900.*theta_h/(gas*temperature)), .8*c, 1e-12);
         EXPECT_NEAR(theta_k/((1.+.6*theta_k)*(1.-theta_k)), .8*c, 1e-12);
     }
-    EXPECT_THROW((isotherm::evaluate(HillDeBoer{5.,.8,15000.},.5,298.15)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(HillDeBoer{5.,.8,15000.},.5,298.15)), isotherm::isotherm_error);
 }
 TEST(ThreeParameterDomain, SaturationBoundaryIsExcluded) {
     using namespace isotherm::models;
-    EXPECT_THROW((isotherm::evaluate(BrunauerEmmettTeller{5,2,8},8)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(MacMillanTeller{5,.7,8},8)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(BrunauerEmmettTeller{5,2,8},8)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(MacMillanTeller{5,.7,8},8)), isotherm::isotherm_error);
 }
 } // namespace

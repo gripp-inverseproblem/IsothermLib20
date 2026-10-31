@@ -65,6 +65,16 @@ public:
         return uptake / (concentration * (1.0 + theta));
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 2> parameters() const noexcept {
+        return {reference_uptake_, affinity_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Elovich with_parameters(const std::array<Real, 2>& p) const {
+        return Elovich{p[0], p[1]};
+    }
+
 private:
     Real reference_uptake_;
     Real affinity_;

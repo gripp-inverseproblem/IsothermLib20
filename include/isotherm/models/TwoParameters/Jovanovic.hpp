@@ -50,6 +50,16 @@ public:
                std::exp(-affinity_ * concentration);
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 2> parameters() const noexcept {
+        return {saturation_uptake_, affinity_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Jovanovic with_parameters(const std::array<Real, 2>& p) const {
+        return Jovanovic{p[0], p[1]};
+    }
+
 private:
     Real saturation_uptake_;
     Real affinity_;

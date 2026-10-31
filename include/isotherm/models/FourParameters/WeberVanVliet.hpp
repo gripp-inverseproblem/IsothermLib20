@@ -59,6 +59,16 @@ public:
         return std::exp(t) / (x * logarithmic_slope);
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 4> parameters() const noexcept {
+        return {k1_, k2_, k3_, k4_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] WeberVanVliet with_parameters(const std::array<Real, 4>& p) const {
+        return WeberVanVliet{p[0], p[1], p[2], p[3]};
+    }
+
 private:
 
     [[nodiscard]] Real log_forward(Real t) const {

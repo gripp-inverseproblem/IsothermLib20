@@ -49,10 +49,10 @@ TEST(GABModel, IndependentFiniteDifferences) {
 }
 TEST(GABModel, RejectsNonPhysicalInputs) {
     const GAB model{3.4, 1.8, 0.72};
-    EXPECT_THROW(isotherm::evaluate(model, -0.1), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity()), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN()), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::derivative(model, 0.0), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
     EXPECT_THROW((GAB{0.0, 1.8, 0.72}), isotherm::isotherm_error);
 }
 TEST(GABModel, SpanBatchMatchesScalar) {

@@ -54,10 +54,20 @@ public:
         const Real theta = evaluate(x) / qmax_;
         return qmax_ * theta * (1.0 - theta) / (x * (1.0 + (n_ - 1.0) * theta));
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {qmax_, k_, n_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] FloryHuggins with_parameters(const std::array<Real, 3>& p) const {
+        return FloryHuggins{p[0], p[1], p[2]};
+    }
+
 private:
-    const Real qmax_;
-    const Real k_;
-    const Real n_;
+    Real qmax_;
+    Real k_;
+    Real n_;
     
 };
 } // namespace isotherm::models

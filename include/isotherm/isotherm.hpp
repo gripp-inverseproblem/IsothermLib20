@@ -19,6 +19,7 @@
 #include "isotherm/core/error.hpp"
 #include "isotherm/core/evaluation.hpp"
 #include "isotherm/core/gas_constant.hpp"
+#include "isotherm/core/parameters.hpp"
 #include "isotherm/core/traits.hpp"
 #include "isotherm/core/type.hpp"
 #include "isotherm/core/validation.hpp"

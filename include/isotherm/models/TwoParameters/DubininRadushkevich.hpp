@@ -35,7 +35,7 @@ public:
     explicit DubininRadushkevich(
         Real capacity, Real energy_coefficient,
         gas_constant_unit energy_unit = gas_constant_unit::joule_per_mole_kelvin)
-        : gas_constant_(molar_gas_constant(energy_unit)),
+        : energy_unit_(energy_unit), gas_constant_(molar_gas_constant(energy_unit)),
           capacity_(capacity), energy_coefficient_(energy_coefficient) {
         require_positive(capacity_, "DubininRadushkevich capacity");
         require_positive(energy_coefficient_, "DubininRadushkevich energy coefficient");
@@ -66,8 +66,19 @@ public:
         return std::exp(std::log(value) + log_slope);
     }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 2> parameters() const noexcept {
+        return {capacity_, energy_coefficient_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. The energy unit is kept. */
+    [[nodiscard]] DubininRadushkevich with_parameters(const std::array<Real, 2>& p) const {
+        return DubininRadushkevich{p[0], p[1], energy_unit_};
+    }
+
 private:
-    const Real gas_constant_;
+    gas_constant_unit energy_unit_;
+    Real gas_constant_;
     Real capacity_;
     Real energy_coefficient_;
 };

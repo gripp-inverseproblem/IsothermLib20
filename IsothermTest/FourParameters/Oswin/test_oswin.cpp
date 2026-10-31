@@ -99,14 +99,14 @@ TEST(OswinModel, RejectsInvalidParametersAndDomain) {
                  isotherm::isotherm_error);
     EXPECT_THROW((Oswin{2.0, std::numeric_limits<Real>::quiet_NaN(), 2.0, 0.0}),
                  isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, -0.01, 300.0), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, 1.0, 300.0), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, 0.5, 0.0), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, 0.5, 1200.0), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.01, 300.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, 1.0, 300.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, 0.5, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, 0.5, 1200.0)), isotherm::isotherm_error);
     const Oswin bad_exponent{2.0, 0.0, 1.7, -0.01};
-    EXPECT_THROW(isotherm::evaluate(bad_exponent, 0.5, 300.0),
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(bad_exponent, 0.5, 300.0)),
                  isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::derivative(model, 0.0, 300.0),
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0, 300.0)),
                  isotherm::isotherm_error);
 }
 

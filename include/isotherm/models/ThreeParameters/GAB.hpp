@@ -52,10 +52,20 @@ public:
         return qm_ * c_ * k_ * (1.0 + (c_ - 1.0) * k_ * k_ * x * x)
                / (d1 * d1 * d2 * d2);
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {qm_, c_, k_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] GAB with_parameters(const std::array<Real, 3>& p) const {
+        return GAB{p[0], p[1], p[2]};
+    }
+
 private:
-    const Real qm_;
-    const Real c_;
-    const Real k_;
+    Real qm_;
+    Real c_;
+    Real k_;
     
 };
 } // namespace isotherm::models

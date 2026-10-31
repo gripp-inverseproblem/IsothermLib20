@@ -51,9 +51,9 @@ TEST(FritzSchlunderModel, RejectsInvalidParametersAndInputs) {
     EXPECT_THROW((FritzSchlunder{0.0, 0.65, 1.15}), isotherm::isotherm_error);
     EXPECT_THROW((FritzSchlunder{0.9, -1.0, 1.15}), isotherm::isotherm_error);
     const FritzSchlunder model{0.9, 0.65, 1.15};
-    EXPECT_THROW((isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
     
 }
 TEST(FritzSchlunderModel, SpanEvaluation) {

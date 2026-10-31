@@ -51,9 +51,9 @@ TEST(BrunauerEmmettTellerModel, RejectsInvalidParametersAndInputs) {
     EXPECT_THROW((BrunauerEmmettTeller{0.0, 2, 8}), isotherm::isotherm_error);
     EXPECT_THROW((BrunauerEmmettTeller{5, -1.0, 8}), isotherm::isotherm_error);
     const BrunauerEmmettTeller model{5, 2, 8};
-    EXPECT_THROW((isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
     
 }
 TEST(BrunauerEmmettTellerModel, SpanEvaluation) {

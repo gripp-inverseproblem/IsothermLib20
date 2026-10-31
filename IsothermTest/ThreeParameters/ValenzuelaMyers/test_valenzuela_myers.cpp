@@ -51,9 +51,9 @@ TEST(ValenzuelaMyersModel, RejectsInvalidParametersAndInputs) {
     EXPECT_THROW((ValenzuelaMyers{0.0, 0.65, 0.7}), isotherm::isotherm_error);
     EXPECT_THROW((ValenzuelaMyers{5, -1.0, 0.7}), isotherm::isotherm_error);
     const ValenzuelaMyers model{5, 0.65, 0.7};
-    EXPECT_THROW((isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
     
 }
 TEST(ValenzuelaMyersModel, SpanEvaluation) {

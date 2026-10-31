@@ -47,9 +47,19 @@ public:
         const Real d = 1.0 - b_ * x;
         return h_ / (d * d);
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 2> parameters() const noexcept {
+        return {h_, b_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] AntiLangmuir with_parameters(const std::array<Real, 2>& p) const {
+        return AntiLangmuir{p[0], p[1]};
+    }
+
 private:
-    const Real h_;
-    const Real b_;
+    Real h_;
+    Real b_;
     
 };
 } // namespace isotherm::models

@@ -49,10 +49,10 @@ TEST(AranovichModel, IndependentFiniteDifferences) {
 }
 TEST(AranovichModel, RejectsNonPhysicalInputs) {
     const Aranovich model{3.5, 0.8, 0.5};
-    EXPECT_THROW(isotherm::evaluate(model, -0.1), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity()), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN()), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::derivative(model, 0.0), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.1)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
     EXPECT_THROW((Aranovich{0.0, 0.8, 0.5}), isotherm::isotherm_error);
 }
 TEST(AranovichModel, SpanBatchMatchesScalar) {

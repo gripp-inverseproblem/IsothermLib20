@@ -52,9 +52,9 @@ TEST(HendersonModel, DomainAndWaterActivityEndPoint) {
     EXPECT_THROW((Henderson{0.015, 0.0, 0.65}), isotherm::isotherm_error);
     EXPECT_THROW((Henderson{0.015, 1.7, -0.1}), isotherm::isotherm_error);
     EXPECT_THROW((Henderson{0.015, 1.7, 1.0}), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, 0.0), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, -5.0), isotherm::isotherm_error);
-    EXPECT_THROW(isotherm::evaluate(model, std::numeric_limits<Real>::infinity()),
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -5.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<Real>::infinity())),
                  isotherm::isotherm_error);
     EXPECT_NEAR(isotherm::evaluate(Henderson{0.015, 1.7, 0.0}, 298.15), 0, 1e-14);
 }

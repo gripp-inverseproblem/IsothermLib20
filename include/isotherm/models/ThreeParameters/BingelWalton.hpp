@@ -50,10 +50,20 @@ public:
         const Real d = 1.0 + (b_ / a_) * e;
         return qmax_ * (a_ + b_) * (1.0 + b_ / a_) * e / (d * d);
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
+        return {qmax_, a_, b_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] BingelWalton with_parameters(const std::array<Real, 3>& p) const {
+        return BingelWalton{p[0], p[1], p[2]};
+    }
+
 private:
-    const Real qmax_;
-    const Real a_;
-    const Real b_;
+    Real qmax_;
+    Real a_;
+    Real b_;
     
 };
 } // namespace isotherm::models

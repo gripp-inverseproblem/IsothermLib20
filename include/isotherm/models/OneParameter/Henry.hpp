@@ -61,6 +61,16 @@ public:
 
     [[nodiscard]] Real coefficient() const noexcept { return coefficient_; }
 
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 1> parameters() const noexcept {
+        return {coefficient_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] Henry with_parameters(const std::array<Real, 1>& p) const {
+        return Henry{p[0]};
+    }
+
 private:
     Real coefficient_;
 };

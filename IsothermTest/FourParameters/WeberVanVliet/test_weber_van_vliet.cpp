@@ -58,10 +58,10 @@ TEST(WeberVanVlietModel, InvalidParametersAndInputs) {
     EXPECT_THROW((WeberVanVliet{5.0, 0.7, 0.5, -1.0}), isotherm::isotherm_error);
     EXPECT_THROW((WeberVanVliet{2.0, 0.7, 0.6, 0.01}), isotherm::isotherm_error);
     const WeberVanVliet model{2, 0.7, 0.6, 0.8};
-    EXPECT_THROW((isotherm::evaluate(model, -0.001)), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
-    EXPECT_THROW((isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, -0.001)), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::infinity())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::evaluate(model, std::numeric_limits<isotherm::Real>::quiet_NaN())), isotherm::isotherm_error);
+    EXPECT_THROW(static_cast<void>(isotherm::derivative(model, 0.0)), isotherm::isotherm_error);
 }
 TEST(WeberVanVlietModel, SpanEvaluation) {
     const WeberVanVliet model{2, 0.7, 0.6, 0.8};

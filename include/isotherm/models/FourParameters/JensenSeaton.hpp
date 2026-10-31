@@ -51,11 +51,21 @@ public:
         const Real v = std::pow(a, t_);
         return evaluate(x) / x * (1.0 - v / ((1.0 + v) * (1.0 + kk_ * x)));
     }
+    /** @brief Parameters in the order of model_traits::parameter_names. */
+    [[nodiscard]] std::array<Real, 4> parameters() const noexcept {
+        return {k_, qm_, kk_, t_};
+    }
+
+    /** @brief Copy with new parameters; the constructor validates them. */
+    [[nodiscard]] JensenSeaton with_parameters(const std::array<Real, 4>& p) const {
+        return JensenSeaton{p[0], p[1], p[2], p[3]};
+    }
+
 private:
-    const Real k_;
-    const Real qm_;
-    const Real kk_;
-    const Real t_;
+    Real k_;
+    Real qm_;
+    Real kk_;
+    Real t_;
     
 };
 } // namespace isotherm::models
