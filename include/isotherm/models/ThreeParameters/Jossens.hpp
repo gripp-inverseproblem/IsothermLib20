@@ -2,7 +2,7 @@
 // Name        : Jossens.hpp
 // Authors     : Joao Flavio Vasconcellos
 // Version     : 2.0.0
-// Description : Jossens equation as coded in the historical project, a Redlich–Peterson-like response.
+// Description : Loading-implicit Jossens isotherm C = (q/H) exp(F q^p).
 //
 // Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
 // Licence     : MIT License (see LICENSE)
@@ -20,54 +20,82 @@
 //==============================================================================
 // Isotherm++ headers
 //==============================================================================
+#include "isotherm/core/error.hpp"
 #include "isotherm/core/traits.hpp"
 #include "isotherm/core/type.hpp"
 #include "isotherm/core/validation.hpp"
 
 namespace isotherm::models {
-/** @brief Jossens equation as coded in the historical project, a Redlich–Peterson-like response. */
+/**
+ * @brief Jossens isotherm in its original loading-implicit form.
+ *
+ * C_e = (q_e/H) exp(F q_e^p), with H > 0 (Henry coefficient), F > 0, p > 0.
+ *
+ * ln C_e = ln q_e - ln H + F q_e^p is strictly increasing in q_e, so every
+ * C_e > 0 has exactly one root, bracketed by 0 < q_e < H C_e. The root is
+ * found by bisection to full double resolution.
+ */
 class Jossens final {
 public:
-    Jossens(Real p1, Real p2, Real p3) : a_(p1), b_(p2), c_(p3) {
-        require_positive(a_, "Jossens a");
-        require_positive(b_, "Jossens b");
-        require_positive(c_, "Jossens c");
+    Jossens(Real henry, Real f, Real p) : h_(henry), f_(f), p_(p) {
+        require_positive(h_, "Jossens H");
+        require_positive(f_, "Jossens F");
+        require_positive(p_, "Jossens p");
     }
 
     [[nodiscard]] Real evaluate(Real x) const {
         require_nonnegative(x, "equilibrium concentration");
-        const Real q = a_, k = b_, n = c_;
         if (x == 0.0) return 0.0;
-        return q * x / (1.0 + k * std::pow(x, n));
+        return solve_uptake(x);
     }
+
+    /** @brief dq/dC = q / [C (1 + F p q^p)]; its limit at C = 0 is H. */
     [[nodiscard]] Real derivative(Real x) const {
-        require_positive(x, "concentration for the derivative");
-        const Real q = a_, k = b_, n = c_;
-        return q * (1.0 + (1.0 - n) * k * std::pow(x, n)) / std::pow(1.0 + k * std::pow(x, n), 2.0);
+        require_nonnegative(x, "equilibrium concentration");
+        if (x == 0.0) return h_;
+        const Real q = solve_uptake(x);
+        return q / (x * (1.0 + f_ * p_ * std::pow(q, p_)));
     }
 
-    /** @brief Parameters in the order of model_traits::parameter_names. */
     [[nodiscard]] std::array<Real, 3> parameters() const noexcept {
-        return {a_, b_, c_};
+        return {h_, f_, p_};
     }
 
-    /** @brief Copy with new parameters; the constructor validates them. */
     [[nodiscard]] Jossens with_parameters(const std::array<Real, 3>& p) const {
         return Jossens{p[0], p[1], p[2]};
     }
 
 private:
-    Real a_, b_, c_;
+    [[nodiscard]] Real solve_uptake(Real x) const {
+        const Real target = std::log(h_) + std::log(x);   // ln(H C)
+        Real lo = 0.0;
+        Real hi = std::exp(target);                       // q < H C
+        if (!std::isfinite(hi)) {
+            throw isotherm_error(error_code::outside_domain,
+                                 "Jossens: H*C exceeds the representable range");
+        }
+        for (int i = 0; i < 2200; ++i) {
+            const Real q = lo + (hi - lo) * 0.5;
+            if (q == lo || q == hi) break;
+            if (std::log(q) + f_ * std::pow(q, p_) < target) lo = q;
+            else hi = q;
+        }
+        return lo + (hi - lo) * 0.5;
+    }
+
+    Real h_;
+    Real f_;
+    Real p_;
 };
 } // namespace isotherm::models
 
 namespace isotherm {
 template<> struct model_traits<models::Jossens> {
     static constexpr std::size_t parameter_count = 3;
-    static constexpr std::array<std::string_view, 3> parameter_names{"A", "B", "n"};
+    static constexpr std::array<std::string_view, 3> parameter_names{"H", "F", "p"};
     static constexpr std::string_view identifier = "jossens";
     static constexpr independent_variable variable = independent_variable::concentration;
-    static constexpr equation_type equation = equation_type::explicit_equation;
+    static constexpr equation_type equation = equation_type::implicit_equation;
     static constexpr bool temperature_dependent = false;
 };
 } // namespace isotherm

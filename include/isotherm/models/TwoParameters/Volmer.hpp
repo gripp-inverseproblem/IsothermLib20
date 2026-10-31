@@ -41,8 +41,11 @@ public:
         // w exp(w) = Kx, with theta=w/(1+w). Bracketed solution.
         const Real lx = std::log(k_) + std::log(x);
         Real lo = 0.0, hi = std::max(1.0, k_ * x);
-        for (int i = 0; i < 160; ++i) {
+        // Bisect to full double resolution: a fixed iteration count cannot resolve
+        // roots far below the initial bracket width (e.g. K*C = 1e-60).
+        for (int i = 0; i < 2200; ++i) {
             const Real w = 0.5 * (lo + hi);
+            if (w == lo || w == hi) break;
             if (w == 0.0 || std::log(w) + w < lx) lo = w;
             else hi = w;
         }

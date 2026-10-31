@@ -35,7 +35,7 @@ int main() {
     check("Hill", isotherm::evaluate(isotherm::models::Hill{5.0, 1.2, 1.4}, 0.8), 1.8939084666186496);
     check("HillDeBoer", isotherm::evaluate(isotherm::models::HillDeBoer{5.0, 0.8, 900.0}, 0.8, 298.15), 1.5633426491065827);
     check("HollKrich", isotherm::evaluate(isotherm::models::HollKrich{5.0, 0.65, 1.3}, 0.8), 1.6360076731367519);
-    check("Jossens", isotherm::evaluate(isotherm::models::Jossens{5.0, 0.65, 1.15}, 0.8), 2.6615513966935613);
+    check("Jossens", isotherm::evaluate(isotherm::models::Jossens{5.0, 0.65, 1.15}, 0.8), 1.4623238458543007);
     check("Khan", isotherm::evaluate(isotherm::models::Khan{5.0, 0.65, 1.15}, 0.8), 1.6063982481016781);
     check("Kiselev", isotherm::evaluate(isotherm::models::Kiselev{5.0, 0.8, 0.6}, 0.8), 2.240755142422779);
     check("KobleCorrigan", isotherm::evaluate(isotherm::models::KobleCorrigan{5.0, 0.65, 1.3}, 0.8), 2.5169348817488491);

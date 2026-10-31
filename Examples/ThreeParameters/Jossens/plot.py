@@ -58,7 +58,7 @@ def main():
                  "dq/dc", "Jossens: concentration derivative")
 
     fig, ax = plt.subplots(figsize=(7.6, 4.3), layout="constrained")
-    for values, label in zip(scaled, ['A', 'B', 'n']):
+    for values, label in zip(scaled, ['H', 'F', 'p']):
         ax.plot(xx, values, linewidth=2.2, label=r"$\lambda_{" + label.replace("_", r"\,") + "}$")
     ax.set(xlabel='Equilibrium concentration', ylabel=r"Scaled sensitivity, $\lambda_i$",
            title="Jossens — numerical parameter sensitivities")

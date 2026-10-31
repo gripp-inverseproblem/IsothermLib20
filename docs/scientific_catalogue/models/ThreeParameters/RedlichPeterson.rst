@@ -16,7 +16,7 @@ Redlich–Peterson isotherm
 Original publication and scope
 ------------------------------
 
-Redlich–Peterson equation; algebraically identical to the Jossens equation implemented here.
+Redlich–Peterson equation. Earlier versions of this catalogue also exposed this functional form under the name ``Jossens``; that class now implements the original loading-implicit Jossens relation and is no longer equivalent to Redlich–Peterson.
 
 The equation and parameter convention are specified below; the model name
 alone does not establish equivalence with every published formulation.

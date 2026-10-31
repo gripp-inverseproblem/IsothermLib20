@@ -32,35 +32,51 @@ isotherm: A critical look at water contaminant adsorption modeling*,
 the original, loading-implicit Jossens relation from the Redlich–Peterson
 isotherm and discuss parameter identification.
 
-**Scientific identification issue:** the current C++ ``Jossens`` class uses
-:math:`q_e=AC_e/(1+BC_e^n)`, which is the Redlich–Peterson functional form,
-not the original loading-implicit Jossens equation. A commonly reported
-form of the latter is :math:`C_e=(q_e/H)\exp(Fq_e^p)`. The 1978 publication
-must therefore not be taken as establishing the equation currently
-implemented in this class. The mathematical formulation and numerical
-results below describe the present C++ implementation; correcting the model
-identity requires a separate code and test review.
+The original Jossens relation is **loading-implicit**: the equilibrium
+concentration is an explicit function of the uptake. It must not be
+confused with the Redlich–Peterson form :math:`q_e=AC_e/(1+BC_e^n)`, which
+is frequently reported under the Jossens name (Chong, Hashim and Chu, 2024).
+This class implements the loading-implicit relation; earlier versions of the
+library exposed the Redlich–Peterson form under this name.
 
 Mathematical formulation
 ------------------------
 
 .. math::
 
-   q_e=\frac{Ac_e}{1+Bc_e^n}
+   C_e=\frac{q_e}{H}\exp\left(Fq_e^{\,p}\right)
 
-The three adjustable parameters are ``A``, ``B`` and ``n``.
-All must be strictly positive and finite. The model accepts finite,
-non-negative equilibrium concentrations, while the derivative requires
-strictly positive concentration.
+The three adjustable parameters are ``H`` (Henry coefficient, uptake per
+concentration), ``F`` and ``p``. All must be strictly positive and finite.
+Because
 
-An analytical concentration derivative is implemented and checked against an
-independently calculated centred difference.
+.. math::
+
+   \ln C_e=\ln q_e-\ln H+Fq_e^{\,p}
+
+is strictly increasing in :math:`q_e`, every positive concentration has a
+unique uptake, bracketed by :math:`0<q_e<HC_e`; the C++ class finds it by
+bisection to full double resolution. An equivalent explicit form is
+:math:`q_e=\left[W\!\left(Fp\,(HC_e)^p\right)/(Fp)\right]^{1/p}`, where
+:math:`W` is the principal Lambert function; it is used only to verify the
+implementation.
+
+The analytical concentration derivative follows from implicit
+differentiation:
+
+.. math::
+
+   \frac{\mathrm{d}q_e}{\mathrm{d}C_e}=\frac{q_e}{C_e\left(1+Fp\,q_e^{\,p}\right)},
+   \qquad
+   \lim_{C_e\to0^+}\frac{\mathrm{d}q_e}{\mathrm{d}C_e}=H.
+
+The implementation returns the Henry-law limit :math:`H` at :math:`C_e=0`.
 
 The implementation requires the following admissible parameter and input domain:
 
 .. math::
 
-   A>0,\quad B>0,\quad n>0,\quad C_e\geq0.
+   H>0,\quad F>0,\quad p>0,\quad C_e\geq0.
 
 C++20 usage
 -----------
@@ -70,8 +86,8 @@ C++20 usage
    #include <isotherm/isotherm.hpp>
 
    const isotherm::models::Jossens model{5, 0.65, 1.15};
-   const isotherm::Real uptake = isotherm::evaluate(model, 0.8);   // 2.6615514
-   const isotherm::Real slope = isotherm::derivative(model, 0.8);  // 2.0467198
+   const isotherm::Real uptake = isotherm::evaluate(model, 0.8);   // 1.4623238
+   const isotherm::Real slope = isotherm::derivative(model, 0.8);  // 0.84734764
 
 .. raw:: html
 
@@ -88,7 +104,7 @@ Jossens isotherm plot
    :width: 95%
    :alt: Uptake curve computed with the compiled C++20 Jossens implementation.
 
-   Jossens uptake for :math:`A=5`, :math:`B=0.65`, :math:`n=1.15`.
+   Jossens uptake for :math:`H=5`, :math:`F=0.65`, :math:`p=1.15`.
 
 Concentration derivative
 ------------------------
@@ -97,8 +113,8 @@ Concentration derivative
    :width: 95%
    :alt: Analytical slope from the compiled C++20 Jossens model.
 
-   Concentration derivative of Jossens uptake for :math:`A=5`, :math:`B=0.65`,
-   :math:`n=1.15`.
+   Concentration derivative of Jossens uptake for :math:`H=5`, :math:`F=0.65`,
+   :math:`p=1.15`.
 
 Numerical sensitivity
 ---------------------
@@ -115,7 +131,7 @@ Numerical values are obtained by perturbing individual parameters and evaluating
    :width: 95%
    :alt: Comparative numerical parameter sensitivities for the Jossens model.
 
-   Scaled sensitivities :math:`\lambda_{A}`, :math:`\lambda_{B}`, :math:`\lambda_{n}` versus
+   Scaled sensitivities :math:`\lambda_{H}`, :math:`\lambda_{F}`, :math:`\lambda_{p}` versus
    equilibrium concentration.
 
 Validation and limitations
@@ -123,4 +139,8 @@ Validation and limitations
 
 .. math::
 
-   A>0,\quad B>0,\quad n>0,\quad C_e\geq0.
+   H>0,\quad F>0,\quad p>0,\quad C_e\geq0.
+
+Chong, Hashim and Chu (2024) report strong correlation between the Jossens
+parameters when they are estimated from a single isotherm; the scaled
+sensitivities above should be inspected before interpreting fitted values.

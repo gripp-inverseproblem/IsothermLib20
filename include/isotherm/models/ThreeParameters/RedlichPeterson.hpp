@@ -2,7 +2,7 @@
 // Name        : RedlichPeterson.hpp
 // Authors     : Joao Flavio Vasconcellos
 // Version     : 2.0.0
-// Description : Redlich–Peterson equation; algebraically identical to the legacy Jossens branch.
+// Description : Redlich–Peterson equation q = A C/(1 + B C^n).
 //
 // Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
 // Licence     : MIT License (see LICENSE)
@@ -25,7 +25,7 @@
 #include "isotherm/core/validation.hpp"
 
 namespace isotherm::models {
-/** @brief Redlich–Peterson equation; algebraically identical to the legacy Jossens branch. */
+/** @brief Redlich–Peterson equation q = A C/(1 + B C^n). */
 class RedlichPeterson final {
 public:
     RedlichPeterson(Real p1, Real p2, Real p3) : a_(p1), b_(p2), c_(p3) {

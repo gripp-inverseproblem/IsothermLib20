@@ -39,10 +39,13 @@ public:
         require_nonnegative(x, "independent variable");
         
         if (x == 0.0) return 0.0;
-        const Real lx = std::log(x * kh_ / qmax_);
+        const Real lx = std::log(x) + std::log(kh_) - std::log(qmax_);
         Real lo = 0.0, hi = 1.0;
-        for (int i = 0; i < 160; ++i) {
+        // Bisect to full double resolution: a fixed iteration count cannot resolve
+        // roots far below the initial bracket width (e.g. K*C = 1e-60).
+        for (int i = 0; i < 2200; ++i) {
             const Real t = lo + (hi - lo) * 0.5;
+            if (t == lo || t == hi) break;
             const Real lhs = std::log(t) - std::log1p(-t)
                      + alpha_ * alpha_ * t / (1.0 + alpha_ * t);
             if (lhs < lx) lo = t; else hi = t;

@@ -42,8 +42,11 @@ public:
         if (x == 0.0) return 0.0;
         const Real lx = std::log(x) + std::log(kh_);
         Real lo = 0.0, hi = std::max(1.0, kh_ * x);
-        for (int i = 0; i < 160; ++i) {
+        // Bisect to full double resolution: a fixed iteration count cannot resolve
+        // roots far below the initial bracket width (e.g. K*C = 1e-60).
+        for (int i = 0; i < 2200; ++i) {
             const Real q = lo + (hi - lo) * 0.5;
+            if (q == lo || q == hi) break;
             const Real f = std::log(q) + a_ * q + b_ * q*q + c_ * q*q*q;
             if (f < lx) lo = q;
             else hi = q;

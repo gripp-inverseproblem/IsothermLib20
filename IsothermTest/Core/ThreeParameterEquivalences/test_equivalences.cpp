@@ -27,13 +27,10 @@ TEST(ThreeParameterEquivalences, DirectSameFormulaFamilies) {
     using namespace isotherm::models;
     const HollKrich holl{5, .7, 1.25};
     const LangmuirFreundlich lf{5, .7, 1.25};
-    const Jossens jossens{5, .7, 1.25};
-    const RedlichPeterson rp{5, .7, 1.25};
     const Khan khan{5, .7, 1.25};
     const RadkePrausnitsI radke{5, .7, 1.25};
     for (double x : {.1, .3, 1., 3.}) {
         EXPECT_NEAR(isotherm::evaluate(holl,x), isotherm::evaluate(lf,x), 1e-13);
-        EXPECT_NEAR(isotherm::evaluate(jossens,x), isotherm::evaluate(rp,x), 1e-13);
         EXPECT_NEAR(isotherm::evaluate(khan,x), isotherm::evaluate(radke,x), 1e-13);
     }
 }
