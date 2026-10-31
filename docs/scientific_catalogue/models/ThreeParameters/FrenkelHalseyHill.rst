@@ -157,34 +157,20 @@ Concentration derivative
 Numerical sensitivity
 ---------------------
 
-For each model parameter :math:`k_i`, the scaled sensitivity is
+For each coefficient :math:`k_i`, the numerical scaled sensitivity is
 
 .. math::
 
-   \lambda_i(C_e)=k_i\frac{\partial q_e(C_e)}{\partial k_i}.
+   \lambda_i(C_e)=k_i\frac{\partial q_e}{\partial k_i}.
 
-Numerical values are obtained by perturbing individual parameters and
-evaluating new instances of the C++ model. The accompanying C++20 example
-performs this procedure.
-
-For independent verification, the exact sensitivities are
-
-.. math::
-
-   \lambda_{q_m}=q_e,\qquad
-   \lambda_{C_s}=-\frac{q_e}{s\ln(C_s/C_e)},\qquad
-   \lambda_s=\frac{q_e\ln[\ln(C_s/C_e)]}{s}.
-
-The :math:`C_s` sensitivity is negative. The :math:`s` sensitivity
-changes sign at :math:`\ln(C_s/C_e)=1`. These are scaled parameter
-sensitivities, **not** concentration derivatives.
+Numerical values are obtained by perturbing individual parameters and evaluating new instances of the C++ model. The accompanying C++20 example performs this procedure.
 
 .. figure:: ../../../_static/figures/frenkel_halsey_hill_sensitivity.svg
    :width: 95%
-   :alt: Scaled numerical sensitivities for q_m, C_s and s versus concentration.
+   :alt: Comparative numerical parameter sensitivities for the Frenkel–Halsey–Hill model.
 
-   Scaled sensitivities :math:`\lambda_{q_m}`, :math:`\lambda_{C_s}`
-   and :math:`\lambda_s` versus :math:`C_e`.
+   Scaled sensitivities :math:`\lambda_{q_m}`, :math:`\lambda_{C_s}`, :math:`\lambda_{s}`
+   versus equilibrium concentration.
 
 Validation and limitations
 --------------------------
