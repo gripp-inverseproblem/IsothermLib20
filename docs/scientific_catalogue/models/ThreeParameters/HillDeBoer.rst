@@ -95,7 +95,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Hill–de Boer source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/ThreeParameters/HillDeBoer.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/ThreeParameters/HillDeBoer.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/ThreeParameters/HillDeBoer/test_hill_de_boer.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/ThreeParameters/HillDeBoer/main.cpp.html">Example</a>
    </div>

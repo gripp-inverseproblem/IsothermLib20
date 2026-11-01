@@ -62,7 +62,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Flory–Huggins VST source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/ThreeParameters/FloryHugginsVST.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/ThreeParameters/FloryHugginsVST.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/ThreeParameters/FloryHugginsVST/test_flory_huggins_v_s_t.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/ThreeParameters/FloryHugginsVST/main.cpp.html">Example</a>
    </div>

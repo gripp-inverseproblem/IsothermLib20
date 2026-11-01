@@ -90,7 +90,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="RadkePrausnitsII source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/ThreeParameters/RadkePrausnitsII.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/ThreeParameters/RadkePrausnitsII.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/ThreeParameters/RadkePrausnitsII/test_radke_prausnits_i_i.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/ThreeParameters/RadkePrausnitsII/main.cpp.html">Example</a>
    </div>

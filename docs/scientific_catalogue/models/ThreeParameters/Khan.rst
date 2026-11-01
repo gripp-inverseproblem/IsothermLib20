@@ -69,7 +69,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Khan source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/ThreeParameters/Khan.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/ThreeParameters/Khan.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/ThreeParameters/Khan/test_khan.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/ThreeParameters/Khan/main.cpp.html">Example</a>
    </div>

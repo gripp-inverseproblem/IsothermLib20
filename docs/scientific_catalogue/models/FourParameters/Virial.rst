@@ -85,7 +85,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Virial source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/FourParameters/Virial.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/FourParameters/Virial.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/FourParameters/Virial/test_virial.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/FourParameters/Virial/main.cpp.html">Example</a>
    </div>

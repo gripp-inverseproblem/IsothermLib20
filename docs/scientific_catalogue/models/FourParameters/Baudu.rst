@@ -108,7 +108,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Baudu source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/FourParameters/Baudu.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/FourParameters/Baudu.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/FourParameters/Baudu/test_baudu.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/FourParameters/Baudu/main.cpp.html">Example</a>
    </div>

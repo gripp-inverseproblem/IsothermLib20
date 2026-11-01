@@ -102,7 +102,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Wilson VST source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/FourParameters/WilsonVST.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/FourParameters/WilsonVST.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/FourParameters/WilsonVST/test_wilson_v_s_t.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/FourParameters/WilsonVST/main.cpp.html">Example</a>
    </div>

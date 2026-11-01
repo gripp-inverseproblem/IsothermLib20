@@ -70,7 +70,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Koble–Corrigan source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/ThreeParameters/KobleCorrigan.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/ThreeParameters/KobleCorrigan.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/ThreeParameters/KobleCorrigan/test_koble_corrigan.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/ThreeParameters/KobleCorrigan/main.cpp.html">Example</a>
    </div>

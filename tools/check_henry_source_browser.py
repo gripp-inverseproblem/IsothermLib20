@@ -21,7 +21,7 @@ with tempfile.TemporaryDirectory(prefix="isotherm_source_browser_") as directory
     output = Path(directory)
     subprocess.run([sys.executable, str(ROOT / "docs/scripts/build_source_browser.py"),
                     "--output", str(output)], check=True, timeout=120)
-    rel = "include/isotherm/models/OneParameter/Henry.hpp"
+    rel = "src/isotherm/models/OneParameter/Henry.hpp"
     original = ROOT / rel
     html = output / (rel + ".html")
     require(html.is_file(), f"Missing source page: {html}")

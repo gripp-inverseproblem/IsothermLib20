@@ -93,7 +93,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Halsey source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/TwoParameters/Halsey.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/TwoParameters/Halsey.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/TwoParameters/Halsey/test_halsey.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/TwoParameters/Halsey/main.cpp.html">Example</a>
    </div>

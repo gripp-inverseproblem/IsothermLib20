@@ -98,7 +98,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Dual-site Langmuir source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/FourParameters/DualSiteLangmuir.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/FourParameters/DualSiteLangmuir.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/FourParameters/DualSiteLangmuir/test_dual_site_langmuir.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/FourParameters/DualSiteLangmuir/main.cpp.html">Example</a>
    </div>

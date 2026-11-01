@@ -70,7 +70,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Langmuir source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/TwoParameters/Langmuir.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/TwoParameters/Langmuir.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/TwoParameters/Langmuir/test_langmuir.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/TwoParameters/Langmuir/main.cpp.html">Example</a>
    </div>

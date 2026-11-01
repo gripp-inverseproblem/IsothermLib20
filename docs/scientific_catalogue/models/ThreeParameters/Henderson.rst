@@ -59,7 +59,7 @@ The mathematical domain is
 
 .. math::
 
-   A>0,\quad B>0,\quad 0\le a_w<1,\quad T>0\ \mathrm{K}.
+   A>0,\quad B>0,\quad 0\leq a_w<1,\quad T>0\ \mathrm{K}.
 
 Here :math:`a_w` is the dimensionless water activity, and
 :math:`T` **must always be provided in kelvin (K)**. For consistent units,
@@ -83,7 +83,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Henderson source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/ThreeParameters/Henderson.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/ThreeParameters/Henderson.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/ThreeParameters/Henderson/test_henderson.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/ThreeParameters/Henderson/main.cpp.html">Example</a>
    </div>
@@ -131,4 +131,4 @@ Validation and limitations
 
 .. math::
 
-   A>0,\quad B>0,\quad 0\le a_w<1,\quad T>0\ \mathrm{K}.
+   A>0,\quad B>0,\quad 0\leq a_w<1,\quad T>0\ \mathrm{K}.

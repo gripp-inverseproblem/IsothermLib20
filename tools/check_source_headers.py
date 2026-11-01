@@ -14,7 +14,7 @@
 from _checks import ROOT, require, success
 
 keys = ("Name", "Authors", "Version", "Description", "Copyright", "Licence", "SPDX-License-Identifier")
-paths = list((ROOT / "include/isotherm").rglob("*.hpp"))
+paths = list((ROOT / "src/isotherm").rglob("*.hpp"))
 paths += list((ROOT / "Examples").rglob("*.cpp"))
 paths += list((ROOT / "Examples").rglob("plot.py"))
 paths += list((ROOT / "IsothermTest").rglob("*.cpp"))

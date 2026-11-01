@@ -84,7 +84,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Marczewski–Jaroniec source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/FourParameters/MarczewskiJaroniec.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/FourParameters/MarczewskiJaroniec.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/FourParameters/MarczewskiJaroniec/test_marczewski_jaroniec.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/FourParameters/MarczewskiJaroniec/main.cpp.html">Example</a>
    </div>

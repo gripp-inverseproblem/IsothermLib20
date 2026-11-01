@@ -74,7 +74,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Fritz–Schlunder V source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/FiveParameters/FritzSchlunderV.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/FiveParameters/FritzSchlunderV.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/FiveParameters/FritzSchlunderV/test_fritz_schlunder_v.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/FiveParameters/FritzSchlunderV/main.cpp.html">Example</a>
    </div>

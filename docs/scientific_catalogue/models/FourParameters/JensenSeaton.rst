@@ -83,7 +83,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Jensen–Seaton source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/FourParameters/JensenSeaton.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/FourParameters/JensenSeaton.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/FourParameters/JensenSeaton/test_jensen_seaton.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/FourParameters/JensenSeaton/main.cpp.html">Example</a>
    </div>

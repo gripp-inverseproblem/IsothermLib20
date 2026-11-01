@@ -145,7 +145,7 @@ find_package(IsothermPP CONFIG REQUIRED)
 target_link_libraries(my_solver PRIVATE Isotherm::Isotherm)
 ```
 
-As the library is header-only, adding the `include` directory to the compiler
+As the library is header-only, adding the `src` directory to the compiler
 search path is also enough.
 
 ## Documentation
@@ -169,8 +169,8 @@ examples.
 ## Repository layout
 
 ```
-include/isotherm/core/     interface, concepts, traits, validation and errors
-include/isotherm/models/   models, grouped by number of parameters
+src/isotherm/core/     interface, concepts, traits, validation and errors
+src/isotherm/models/   models, grouped by number of parameters
 Examples/                  one example per model, plus ExternalModelDemo
 IsothermTest/              GoogleTest suite
 docs/                      scientific manual (Sphinx)

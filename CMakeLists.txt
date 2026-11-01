@@ -24,7 +24,7 @@ add_library(isotherm_core INTERFACE)
 add_library(Isotherm::Isotherm ALIAS isotherm_core)
 target_compile_features(isotherm_core INTERFACE cxx_std_20)
 target_include_directories(isotherm_core INTERFACE
-    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>"
     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 set_target_properties(isotherm_core PROPERTIES EXPORT_NAME Isotherm)
 
@@ -69,7 +69,7 @@ if(ISOTHERM_BUILD_DOCS)
     add_subdirectory(docs)
 endif()
 
-install(DIRECTORY include/isotherm DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+install(DIRECTORY src/isotherm DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
     PATTERN ".gitkeep" EXCLUDE)
 install(TARGETS isotherm_core EXPORT IsothermPPTargets)
 install(EXPORT IsothermPPTargets FILE IsothermPPTargets.cmake

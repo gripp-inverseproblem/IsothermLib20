@@ -64,7 +64,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Triple-site Langmuir source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/SixParameters/TripleSiteLangmuir.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/SixParameters/TripleSiteLangmuir.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/SixParameters/TripleSiteLangmuir/test_triple_site_langmuir.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/SixParameters/TripleSiteLangmuir/main.cpp.html">Example</a>
    </div>

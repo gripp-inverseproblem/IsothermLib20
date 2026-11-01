@@ -91,7 +91,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Jovanovic source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/TwoParameters/Jovanovic.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/TwoParameters/Jovanovic.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/TwoParameters/Jovanovic/test_jovanovic.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/TwoParameters/Jovanovic/main.cpp.html">Example</a>
    </div>

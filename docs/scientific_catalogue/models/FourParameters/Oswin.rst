@@ -116,7 +116,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Oswin source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/FourParameters/Oswin.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/FourParameters/Oswin.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/FourParameters/Oswin/test_oswin.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/FourParameters/Oswin/main.cpp.html">Example</a>
    </div>

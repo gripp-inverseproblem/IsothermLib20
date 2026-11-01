@@ -94,7 +94,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Weber–Van Vliet source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/FourParameters/WeberVanVliet.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/FourParameters/WeberVanVliet.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/FourParameters/WeberVanVliet/test_weber_van_vliet.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/FourParameters/WeberVanVliet/main.cpp.html">Example</a>
    </div>

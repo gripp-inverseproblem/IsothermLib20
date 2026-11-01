@@ -20,7 +20,7 @@ require(bool(items), "No model entries in the catalogue")
 require(len(set(items)) == len(items), "Duplicate models in catalogue")
 for group, count in PARAMETER_COUNTS.items():
     actual = [name for grp, name in items if grp == group]
-    expected = sorted(p.stem for p in (ROOT / "include/isotherm/models" / group).glob("*.hpp"))
+    expected = sorted(p.stem for p in (ROOT / "src/isotherm/models" / group).glob("*.hpp"))
     require(actual == sorted(actual), f"Non-alphabetical {group} entries")
     require(actual == expected, f"Catalogue/{group} mismatch: {set(actual)^set(expected)}")
     for name in actual:

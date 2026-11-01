@@ -82,7 +82,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Anti-Langmuir source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/TwoParameters/AntiLangmuir.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/TwoParameters/AntiLangmuir.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/TwoParameters/AntiLangmuir/test_anti_langmuir.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/TwoParameters/AntiLangmuir/main.cpp.html">Example</a>
    </div>

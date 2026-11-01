@@ -51,7 +51,7 @@ def check_approx(actual: float, expected: float, label: str,
 
 
 def model_files():
-    base = ROOT / "include/isotherm/models"
+    base = ROOT / "src/isotherm/models"
     for group, count in PARAMETER_COUNTS.items():
         for path in sorted((base / group).glob("*.hpp")):
             yield group, count, path.stem, path

@@ -55,7 +55,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Freundlich source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/TwoParameters/Freundlich.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/TwoParameters/Freundlich.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/TwoParameters/Freundlich/test_freundlich.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/TwoParameters/Freundlich/main.cpp.html">Example</a>
    </div>

@@ -63,7 +63,7 @@ The equation implemented by the C++20 class is
 
 .. math::
 
-   \boxed{q_e(C_e)=q_m\left[\ln\left(\frac{C_s}{C_e}\right)\right]^{-1/s}.}
+   q_e(C_e)=q_m\left[\ln\left(\frac{C_s}{C_e}\right)\right]^{-1/s}.
 
 The parameters are :math:`q_m>0` (uptake scaling coefficient),
 :math:`C_s>0` (reference saturation concentration), and :math:`s>0`
@@ -101,8 +101,8 @@ The analytical concentration derivative is
 
 .. math::
 
-   \boxed{\frac{dq_e}{dC_e}
-   =\frac{q_e(C_e)}{s C_e\ln(C_s/C_e)} > 0.}
+   \frac{dq_e}{dC_e}
+   =\frac{q_e(C_e)}{s C_e\ln(C_s/C_e)} > 0.
 
 For this parametrisation, uptake tends to zero as :math:`C_e\to0^+`
 and diverges as :math:`C_e\to C_s^-`. It has no finite saturation
@@ -130,7 +130,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Frenkel–Halsey–Hill source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/ThreeParameters/FrenkelHalseyHill.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/ThreeParameters/FrenkelHalseyHill.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/ThreeParameters/FrenkelHalseyHill/test_frenkel_halsey_hill.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/ThreeParameters/FrenkelHalseyHill/main.cpp.html">Example</a>
    </div>

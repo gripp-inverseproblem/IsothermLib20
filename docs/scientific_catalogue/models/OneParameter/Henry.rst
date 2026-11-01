@@ -68,7 +68,7 @@ C++20 usage
 .. raw:: html
 
    <div class="isotherm-source-tools" role="navigation" aria-label="Henry source code">
-     <a class="isotherm-source-action" href="../../../source-browser/include/isotherm/models/OneParameter/Henry.hpp.html">Implementation</a>
+     <a class="isotherm-source-action" href="../../../source-browser/src/isotherm/models/OneParameter/Henry.hpp.html">Implementation</a>
      <a class="isotherm-source-action" href="../../../source-browser/IsothermTest/OneParameter/Henry/test_henry.cpp.html">Tests</a>
      <a class="isotherm-source-action" href="../../../source-browser/Examples/OneParameter/Henry/main.cpp.html">Example</a>
    </div>

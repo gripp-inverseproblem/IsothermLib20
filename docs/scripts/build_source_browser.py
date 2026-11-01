@@ -42,15 +42,15 @@ from pygments.token import Comment, Keyword, Literal, Name, Number, Operator, St
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE_FILES = (
-    "include/isotherm/core/type.hpp",
-    "include/isotherm/core/gas_constant.hpp",
-    "include/isotherm/core/error.hpp",
-    "include/isotherm/core/traits.hpp",
-    "include/isotherm/core/concepts.hpp",
-    "include/isotherm/core/validation.hpp",
-    "include/isotherm/core/evaluation.hpp",
-    "include/isotherm/core/parameters.hpp",
-    "include/isotherm/models/OneParameter/Henry.hpp",
+    "src/isotherm/core/type.hpp",
+    "src/isotherm/core/gas_constant.hpp",
+    "src/isotherm/core/error.hpp",
+    "src/isotherm/core/traits.hpp",
+    "src/isotherm/core/concepts.hpp",
+    "src/isotherm/core/validation.hpp",
+    "src/isotherm/core/evaluation.hpp",
+    "src/isotherm/core/parameters.hpp",
+    "src/isotherm/models/OneParameter/Henry.hpp",
     "Examples/OneParameter/Henry/main.cpp",
     "IsothermTest/OneParameter/Henry/test_henry.cpp",
     "Examples/TwoParameters/AntiLangmuir/main.cpp",
@@ -61,13 +61,13 @@ BASE_FILES = (
     "IsothermTest/TwoParameters/Temkin/test_temkin.cpp",
     "IsothermTest/TwoParameters/DubininRadushkevich/test_dubinin_radushkevich.cpp",
     "IsothermTest/TwoParameters/AntiLangmuir/test_anti_langmuir.cpp",
-    "include/isotherm/isotherm.hpp",
+    "src/isotherm/isotherm.hpp",
 )
 # The umbrella header includes the complete published catalogue. Make every
 # project header browsable so its #include link always has a local destination.
 MODEL_HEADERS = tuple(
     str(path.relative_to(ROOT)).replace(os.sep, "/")
-    for path in sorted((ROOT / "include/isotherm/models").rglob("*.hpp"))
+    for path in sorted((ROOT / "src/isotherm/models").rglob("*.hpp"))
 )
 TWO_PARAMETER_EXAMPLES = tuple(
     str(path.relative_to(ROOT)).replace(os.sep, "/")
@@ -117,29 +117,29 @@ FILES = tuple(dict.fromkeys((*BASE_FILES, *MODEL_HEADERS,
                               *SIX_PARAMETER_EXAMPLES, *SIX_PARAMETER_TESTS)))
 # (File, defining text): the line is resolved from source, not hard-coded.
 DEFINITIONS = {
-    "Real": ("include/isotherm/core/type.hpp", r"\busing Real ="),
-    "gas_constant_unit": ("include/isotherm/core/gas_constant.hpp", r"\benum class gas_constant_unit\b"),
-    "molar_gas_constant": ("include/isotherm/core/gas_constant.hpp", r"\bReal molar_gas_constant\s*\("),
-    "isotherm_error": ("include/isotherm/core/error.hpp", r"\bclass isotherm_error\b"),
-    "error_code": ("include/isotherm/core/error.hpp", r"\benum class error_code\b"),
-    "model_traits": ("include/isotherm/core/traits.hpp", r"\bstruct model_traits\b"),
-    "scalar_isotherm": ("include/isotherm/core/concepts.hpp", r"\bconcept scalar_isotherm\b"),
-    "thermal_isotherm": ("include/isotherm/core/concepts.hpp", r"\bconcept thermal_isotherm\b"),
-    "differentiable_scalar_isotherm": ("include/isotherm/core/concepts.hpp", r"\bconcept differentiable_scalar_isotherm\b"),
-    "require_finite": ("include/isotherm/core/validation.hpp", r"\bvoid require_finite\s*\("),
-    "require_positive": ("include/isotherm/core/validation.hpp", r"\bvoid require_positive\s*\("),
-    "require_nonnegative": ("include/isotherm/core/validation.hpp", r"\bvoid require_nonnegative\s*\("),
-    "evaluate": ("include/isotherm/core/evaluation.hpp", r"\bReal evaluate\s*\("),
-    "derivative": ("include/isotherm/core/evaluation.hpp", r"\bReal derivative\s*\("),
-    "evaluate_into": ("include/isotherm/core/evaluation.hpp", r"\bvoid evaluate_into\s*\("),
-    "parameterised_model": ("include/isotherm/core/parameters.hpp", r"\bconcept parameterised_model\b"),
-    "parameter_array": ("include/isotherm/core/parameters.hpp", r"\busing parameter_array ="),
-    "with_parameter": ("include/isotherm/core/parameters.hpp", r"\bModel with_parameter\s*\("),
-    "Henry": ("include/isotherm/models/OneParameter/Henry.hpp", r"\bclass Henry\b"),
-    "AntiLangmuir": ("include/isotherm/models/TwoParameters/AntiLangmuir.hpp", r"\bclass AntiLangmuir\b"),
-    "DubininRadushkevich": ("include/isotherm/models/TwoParameters/DubininRadushkevich.hpp", r"\bclass DubininRadushkevich\b"),
-    "Elovich": ("include/isotherm/models/TwoParameters/Elovich.hpp", r"\bclass Elovich\b"),
-    "Temkin": ("include/isotherm/models/TwoParameters/Temkin.hpp", r"\bclass Temkin\b"),
+    "Real": ("src/isotherm/core/type.hpp", r"\busing Real ="),
+    "gas_constant_unit": ("src/isotherm/core/gas_constant.hpp", r"\benum class gas_constant_unit\b"),
+    "molar_gas_constant": ("src/isotherm/core/gas_constant.hpp", r"\bReal molar_gas_constant\s*\("),
+    "isotherm_error": ("src/isotherm/core/error.hpp", r"\bclass isotherm_error\b"),
+    "error_code": ("src/isotherm/core/error.hpp", r"\benum class error_code\b"),
+    "model_traits": ("src/isotherm/core/traits.hpp", r"\bstruct model_traits\b"),
+    "scalar_isotherm": ("src/isotherm/core/concepts.hpp", r"\bconcept scalar_isotherm\b"),
+    "thermal_isotherm": ("src/isotherm/core/concepts.hpp", r"\bconcept thermal_isotherm\b"),
+    "differentiable_scalar_isotherm": ("src/isotherm/core/concepts.hpp", r"\bconcept differentiable_scalar_isotherm\b"),
+    "require_finite": ("src/isotherm/core/validation.hpp", r"\bvoid require_finite\s*\("),
+    "require_positive": ("src/isotherm/core/validation.hpp", r"\bvoid require_positive\s*\("),
+    "require_nonnegative": ("src/isotherm/core/validation.hpp", r"\bvoid require_nonnegative\s*\("),
+    "evaluate": ("src/isotherm/core/evaluation.hpp", r"\bReal evaluate\s*\("),
+    "derivative": ("src/isotherm/core/evaluation.hpp", r"\bReal derivative\s*\("),
+    "evaluate_into": ("src/isotherm/core/evaluation.hpp", r"\bvoid evaluate_into\s*\("),
+    "parameterised_model": ("src/isotherm/core/parameters.hpp", r"\bconcept parameterised_model\b"),
+    "parameter_array": ("src/isotherm/core/parameters.hpp", r"\busing parameter_array ="),
+    "with_parameter": ("src/isotherm/core/parameters.hpp", r"\bModel with_parameter\s*\("),
+    "Henry": ("src/isotherm/models/OneParameter/Henry.hpp", r"\bclass Henry\b"),
+    "AntiLangmuir": ("src/isotherm/models/TwoParameters/AntiLangmuir.hpp", r"\bclass AntiLangmuir\b"),
+    "DubininRadushkevich": ("src/isotherm/models/TwoParameters/DubininRadushkevich.hpp", r"\bclass DubininRadushkevich\b"),
+    "Elovich": ("src/isotherm/models/TwoParameters/Elovich.hpp", r"\bclass Elovich\b"),
+    "Temkin": ("src/isotherm/models/TwoParameters/Temkin.hpp", r"\bclass Temkin\b"),
     "numerical_scaled_sensitivity": (
         "Examples/OneParameter/Henry/main.cpp", r"\bReal numerical_scaled_sensitivity\s*\("
     ),
@@ -236,7 +236,7 @@ def linked_local_include(source_line: str, current: str, available: set[str]) ->
     )
     if match is None:
         return None
-    target = "include/" + match.group("header")
+    target = "src/" + match.group("header")
     if target not in available:
         raise RuntimeError(f"Unindexed project header in {current}: {target}")
     relative = Path(os.path.relpath(Path(target + ".html"), Path(current).parent)).as_posix()
@@ -312,7 +312,7 @@ def generate(output: Path) -> None:
         # scientific manual. Shared/core files have no model-specific manual.
         parts = Path(filename).parts
         model_location = None
-        if len(parts) == 5 and parts[:3] == ("include", "isotherm", "models"):
+        if len(parts) == 5 and parts[:3] == ("src", "isotherm", "models"):
             model_location = (parts[3], Path(parts[4]).stem)
         elif len(parts) >= 4 and parts[0] in ("Examples", "IsothermTest"):
             model_location = (parts[1], parts[2])
