@@ -6,7 +6,7 @@
 # Description : Compose the Sphinx HTML pages into an A4 CSS-rendered PDF.
 #
 # Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
-# Licence     : MIT License (see LICENSE)
+# Licence     : MIT License (see LICENSE.txt)
 # SPDX-License-Identifier: MIT
 #==============================================================================
 

@@ -5,7 +5,7 @@
 // Description : Langmuir–Freundlich heterogeneity law; equivalent response family to Hill, Sips and Holl–Krich under parameter mappings.
 //
 // Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
-// Licence     : MIT License (see LICENSE)
+// Licence     : MIT License (see LICENSE.txt)
 // SPDX-License-Identifier: MIT
 //==============================================================================
 

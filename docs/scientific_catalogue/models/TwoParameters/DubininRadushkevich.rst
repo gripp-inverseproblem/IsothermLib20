@@ -6,7 +6,7 @@
    Description : Dubinin–Radushkevich scientific formulation and C++20 usage.
 
    Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
-   Licence     : MIT License (see LICENSE)
+   Licence     : MIT License (see LICENSE.txt)
    SPDX-License-Identifier: MIT
    ==============================================================================
 

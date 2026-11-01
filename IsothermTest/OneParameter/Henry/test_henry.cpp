@@ -5,7 +5,7 @@
 // Description : Independent mathematical and domain tests of the Henry model.
 //
 // Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
-// Licence     : MIT License (see LICENSE)
+// Licence     : MIT License (see LICENSE.txt)
 // SPDX-License-Identifier: MIT
 //==============================================================================
 

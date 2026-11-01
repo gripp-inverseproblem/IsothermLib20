@@ -5,7 +5,7 @@
 // Description : Loading-implicit Jossens isotherm C = (q/H) exp(F q^p).
 //
 // Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
-// Licence     : MIT License (see LICENSE)
+// Licence     : MIT License (see LICENSE.txt)
 // SPDX-License-Identifier: MIT
 //==============================================================================
 

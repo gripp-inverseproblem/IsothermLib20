@@ -5,7 +5,7 @@
 // Description : Implicit Hill–de Boer equation. Conservative W/(RT) ≤ 4 ensures unique monotone root.
 //
 // Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
-// Licence     : MIT License (see LICENSE)
+// Licence     : MIT License (see LICENSE.txt)
 // SPDX-License-Identifier: MIT
 //==============================================================================
 

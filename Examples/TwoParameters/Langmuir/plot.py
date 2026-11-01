@@ -4,7 +4,7 @@
 # Version     : 2.0.0
 # Description : Plot C++20 model outputs without reimplementing any isotherm or sensitivity.
 # Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
-# Licence     : MIT License (see LICENSE)
+# Licence     : MIT License (see LICENSE.txt)
 # SPDX-License-Identifier: MIT
 #==============================================================================
 

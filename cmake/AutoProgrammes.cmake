@@ -5,7 +5,7 @@
 # Description : Discover model examples and tests without manual CMake edits.
 #
 # Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
-# Licence     : MIT License (see LICENSE)
+# Licence     : MIT License (see LICENSE.txt)
 # SPDX-License-Identifier: MIT
 #==============================================================================
 

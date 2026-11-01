@@ -5,7 +5,7 @@
 // Description : BET form using an adjustable saturation concentration; c_e must remain below c_s.
 //
 // Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
-// Licence     : MIT License (see LICENSE)
+// Licence     : MIT License (see LICENSE.txt)
 // SPDX-License-Identifier: MIT
 //==============================================================================
 

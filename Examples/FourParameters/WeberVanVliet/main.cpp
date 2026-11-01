@@ -5,7 +5,7 @@
 // Description : Generate scientific CSV observations from compiled WeberVanVliet C++20 code.
 //
 // Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
-// Licence     : MIT License (see LICENSE)
+// Licence     : MIT License (see LICENSE.txt)
 // SPDX-License-Identifier: MIT
 //==============================================================================
 
