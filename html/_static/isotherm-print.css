@@ -1,0 +1,161 @@
+/*
+==============================================================================
+Name        : isotherm-print.css
+Authors     : Joao Flavio Vasconcellos
+Version     : 2.0.0
+Description : A4 data-sheet print style for the scientific manual (WeasyPrint).
+
+Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
+Licence     : MIT License (see LICENSE.txt)
+SPDX-License-Identifier: MIT
+==============================================================================
+
+Layout: a 40 mm rail on the left carries section labels and model metadata;
+the text column carries prose, equations and code. Plots run across the full
+width as one strip of small multiples. Fonts: IBM Plex (SIL OFL 1.1, see
+fonts/OFL.txt).
+*/
+
+@font-face { font-family: "Plex"; src: url(fonts/IBMPlexSans-Regular.ttf); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Plex"; src: url(fonts/IBMPlexSans-Italic.ttf); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Plex"; src: url(fonts/IBMPlexSans-Light.ttf); font-weight: 300; }
+@font-face { font-family: "Plex"; src: url(fonts/IBMPlexSans-Medium.ttf); font-weight: 500; }
+@font-face { font-family: "Plex"; src: url(fonts/IBMPlexSans-SemiBold.ttf); font-weight: 600; }
+@font-face { font-family: "Plex"; src: url(fonts/IBMPlexSans-Bold.ttf); font-weight: 700; }
+@font-face { font-family: "Plex Condensed"; src: url(fonts/IBMPlexSansCondensed-Medium.ttf); font-weight: 500; }
+@font-face { font-family: "Plex Condensed"; src: url(fonts/IBMPlexSansCondensed-SemiBold.ttf); font-weight: 600; }
+@font-face { font-family: "Plex Mono"; src: url(fonts/IBMPlexMono-Regular.ttf); font-weight: 400; }
+@font-face { font-family: "Plex Mono"; src: url(fonts/IBMPlexMono-Medium.ttf); font-weight: 500; }
+
+:root {
+  --ink: #1D2347; --indigo: #27316A; --turquoise: #087F82; --coral: #DF735F;
+  --lilac: #E6EAF5; --muted: #6B7390; --rule: #D9DDEA; --paper: #FFFFFF;
+  --rail: 40mm; --gutter: 6mm;
+}
+
+/* ---------------------------------------------------------------- pages */
+@page { size: A4; }
+@page cover { margin: 0; }
+@page contents {
+  margin: 20mm 16mm 18mm 16mm;
+  @bottom-right { content: counter(page); font: 500 7.5pt "Plex Mono"; color: #6B7390; }
+}
+@page main {
+  margin: 17mm 14mm 17mm 14mm;
+  @top-left { content: string(sheet, first); font: 600 7pt "Plex Condensed"; letter-spacing: .12em; text-transform: uppercase; color: #27316A; vertical-align: bottom; padding-bottom: 3mm; }
+  @top-right { content: "Isotherm++ 2.0  \00B7  Scientific manual"; font: 500 7pt "Plex Condensed"; letter-spacing: .12em; text-transform: uppercase; color: #6B7390; vertical-align: bottom; padding-bottom: 3mm; }
+  @bottom-left { content: counter(page); font: 500 8pt "Plex Mono"; color: #27316A; vertical-align: top; padding-top: 3mm; }
+  @bottom-right { content: string(group, first); font: 500 6.5pt "Plex Condensed"; letter-spacing: .12em; text-transform: uppercase; color: #6B7390; vertical-align: top; padding-top: 3mm; }
+}
+
+/* ------------------------------------------------------------- base text */
+* { box-sizing: border-box; }
+html { font-family: "Plex", sans-serif; font-size: 8.8pt; line-height: 1.46; color: var(--ink); }
+body { margin: 0; }
+p { margin: 0 0 6pt; hyphens: auto; orphans: 3; widows: 3; }
+a { color: var(--indigo); text-decoration: none; }
+strong, b { font-weight: 600; }
+em { font-style: italic; }
+ul, ol { margin: 0 0 6pt; padding-left: 4.2mm; }
+li { margin: 0 0 2pt; }
+h1, h2, h3, h4 { color: var(--ink); break-after: avoid; font-weight: 600; }
+
+/* --------------------------------------------------------------- cover */
+.print-cover { page: cover; height: 297mm; position: relative; padding: 20mm 18mm 0; background: var(--paper); }
+.cover-top { display: flex; align-items: center; gap: 6mm; border-bottom: .6pt solid var(--rule); padding-bottom: 5mm;
+             font: 600 7.5pt "Plex Condensed"; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.cover-top img { width: 11mm; height: 11mm; }
+.cover-top span:last-child { margin-left: auto; color: var(--indigo); }
+.print-cover h1 { font: 600 74pt/0.92 "Plex"; letter-spacing: -.045em; color: var(--indigo); margin: 26mm 0 0; }
+.print-cover h1 .plus { color: var(--coral); letter-spacing: -.02em; }
+.cover-lead { font: 300 15pt/1.32 "Plex"; color: var(--ink); max-width: 128mm; margin: 9mm 0 0; hyphens: manual; }
+.cover-field { position: absolute; left: 0; right: 0; bottom: 26mm; height: 120mm; }
+.cover-field svg { width: 210mm; height: 120mm; display: block; }
+.cover-foot { position: absolute; left: 18mm; right: 18mm; bottom: 11mm; display: flex; justify-content: space-between;
+              border-top: .6pt solid var(--rule); padding-top: 4mm;
+              font: 500 7pt "Plex Mono"; color: var(--muted); letter-spacing: .04em; }
+
+/* ------------------------------------------------------------ contents */
+.print-contents { page: contents; break-after: page; }
+.print-contents h1 { font: 600 30pt/1 "Plex"; letter-spacing: -.035em; color: var(--indigo); margin: 0 0 9mm;
+                     border-top: 2.5pt solid var(--indigo); padding-top: 4mm; }
+.toc { column-count: 2; column-gap: 10mm; }
+.toc-block { margin: 0 0 5mm; }
+.toc-block h2 { font: 600 7.2pt "Plex Condensed"; letter-spacing: .14em; text-transform: uppercase; color: var(--turquoise);
+                margin: 0 0 1.5mm; padding-bottom: 1.2mm; border-bottom: .6pt solid var(--rule); break-after: avoid; }
+.toc-block h2 b { font: 500 7.2pt "Plex Mono"; color: var(--coral); margin-right: 1.5mm; }
+.toc ol { list-style: none; padding: 0; margin: 0; }
+.toc li { margin: 0; }
+.toc a { display: flex; align-items: baseline; color: var(--ink); font-size: 8pt; line-height: 1.6; }
+.toc a em { font: 400 6.8pt "Plex Mono"; font-style: normal; color: var(--muted); width: 6mm; flex: none; }
+.toc a span { flex: 1; }
+.toc a::after { content: target-counter(attr(href url), page); font: 400 7pt "Plex Mono"; color: var(--muted); }
+
+/* ------------------------------------------------------ chapter frames */
+.print-chapter { page: main; break-before: page; padding-left: calc(var(--rail) + var(--gutter)); position: relative; }
+.print-chapter section { position: relative; }
+.print-chapter h1 { string-set: sheet content(); font: 600 21pt/1.08 "Plex"; letter-spacing: -.03em; color: var(--indigo);
+                    margin: 0 0 6mm; padding-top: 3.2mm; border-top: 2.5pt solid var(--indigo); }
+.print-chapter.chapter h1 { font-size: 25pt; string-set: sheet content(), group ""; }
+
+/* Section headings hang in the rail, aligned with the first line. */
+.print-chapter h2 { position: absolute; left: calc(-1 * (var(--rail) + var(--gutter))); top: 0; width: var(--rail);
+                    margin: 0; font: 600 7pt/1.3 "Plex Condensed"; letter-spacing: .1em; text-transform: uppercase;
+                    color: var(--turquoise); padding-top: 1.4mm; border-top: .6pt solid var(--turquoise); }
+.print-chapter section section { margin: 0 0 4.2mm; padding-top: 1.4mm; min-height: 9mm; }
+.print-chapter h3 { font: 600 8.8pt "Plex"; color: var(--indigo); margin: 4mm 0 1.5mm; }
+.print-chapter h4 { font: 600 8pt "Plex"; margin: 3mm 0 1mm; }
+
+/* ---------------------------------------------------- model data sheet */
+/* Models flow continuously; each opens with a heavy rule and its number. */
+.print-chapter.model-sheet { break-before: auto; margin-top: 9mm; }
+.print-chapter.chapter + .print-chapter.model-sheet { break-before: page; margin-top: 0; }
+.model-sheet h1 { break-after: avoid; margin-bottom: 2.2mm; }
+.sheet-meta { position: absolute; left: calc(-1 * (var(--rail) + var(--gutter))); top: 0; width: var(--rail); }
+.sheet-number { font: 500 27pt/1 "Plex Mono"; color: var(--indigo); letter-spacing: -.04em; padding-top: 2.4mm; border-top: 2.5pt solid var(--coral); }
+.sheet-spec { display: flex; align-items: center; flex-wrap: wrap; gap: 2.4mm; margin: 0 0 5mm; padding-bottom: 2.6mm;
+              border-bottom: .6pt solid var(--rule); break-after: avoid; }
+.sheet-dots i { display: inline-block; width: 2.1mm; height: 2.1mm; border-radius: 50%; background: var(--coral); margin-right: .9mm; }
+.sheet-label { string-set: group content(); font: 600 6.8pt "Plex Condensed"; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.sheet-params { font: 400 7.2pt "Plex Mono"; color: var(--ink); }
+.sheet-params::before, .sheet-tag::before { content: "/"; color: var(--rule); margin-right: 2.4mm; font: 400 7.2pt "Plex Mono"; }
+.sheet-tag { font: 600 6.6pt "Plex Condensed"; letter-spacing: .12em; text-transform: uppercase; color: var(--turquoise); }
+
+/* Plot strip: full width, including the rail. */
+figure.strip { margin: 1mm 0 5mm calc(-1 * (var(--rail) + var(--gutter))); padding: 2.5mm 0 2mm;
+               border-top: .6pt solid var(--rule); border-bottom: .6pt solid var(--rule); break-inside: avoid; }
+figure.strip > img { width: 182mm; max-height: none; height: auto; display: block; }
+figure.strip figcaption { margin: 1.6mm 0 0 calc(var(--rail) + var(--gutter)); font-size: 7pt; line-height: 1.38; color: var(--muted); }
+figure.strip figcaption b { color: var(--ink); }
+
+/* ------------------------------------------------------------ equations */
+.equation { margin: 2mm 0 3.2mm; padding: .8mm 0 .8mm 3.2mm; border-left: 1.4pt solid var(--turquoise); break-inside: avoid; }
+.math-vector-display { display: block; max-width: 100%; height: auto; }
+.math-vector-inline { display: inline; vertical-align: middle; height: auto; max-width: 100%; }
+
+/* ------------------------------------------------------- code and boxes */
+.print-chapter pre, .print-chapter .highlight { font: 400 7.1pt/1.42 "Plex Mono"; color: var(--ink); background: #F4F5F9;
+  border-left: 1.6pt solid var(--coral); padding: 2.4mm 3mm; margin: 1.5mm 0 3mm; white-space: pre-wrap; word-break: break-word; break-inside: avoid; }
+.print-chapter .highlight pre { padding: 0; margin: 0; border: 0; background: none; }
+.print-chapter code, .print-chapter .literal { font: 400 7.8pt "Plex Mono"; color: var(--indigo); }
+.print-chapter .highlight .c1, .print-chapter .highlight .cm, .print-chapter .highlight .cp { color: #7D84A0; }
+.print-chapter .highlight .k, .print-chapter .highlight .kt, .print-chapter .highlight .kd { color: var(--indigo); font-weight: 500; }
+.print-chapter .highlight .mf, .print-chapter .highlight .mi, .print-chapter .highlight .s { color: var(--turquoise); }
+
+.print-chapter .admonition { margin: 2mm 0 4mm; padding: 2mm 0 1mm; border-top: .6pt solid var(--coral); border-bottom: .6pt solid var(--rule); break-inside: avoid; }
+.print-chapter .admonition-title { font: 600 6.8pt "Plex Condensed"; letter-spacing: .12em; text-transform: uppercase; color: var(--coral); margin: 0 0 1.2mm; }
+
+.print-chapter figure { margin: 3mm 0; break-inside: avoid; }
+.print-chapter figure:not(.strip) > img, .print-chapter figure:not(.strip) > a > img { max-width: 100%; max-height: 90mm; height: auto; }
+.print-chapter figcaption { font-size: 7pt; color: var(--muted); }
+
+.print-chapter table { border-collapse: collapse; width: 100%; margin: 2mm 0 4mm; font-size: 7.6pt; }
+.print-chapter th { font: 600 6.6pt "Plex Condensed"; letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+                    text-align: left; border-bottom: .8pt solid var(--ink); padding: 1.2mm 2mm 1.2mm 0; }
+.print-chapter td { border-bottom: .5pt solid var(--rule); padding: 1.1mm 2mm 1.1mm 0; vertical-align: top; }
+
+.print-chapter .isotherm-hero { margin: 0 0 4mm; }
+.print-chapter .isotherm-eyebrow { font: 600 6.8pt "Plex Condensed"; letter-spacing: .14em; text-transform: uppercase; color: var(--turquoise); }
+.print-chapter .isotherm-brand-icon img { max-height: 16mm; width: auto; }
+.print-chapter img { max-width: 100%; }
+.print-chapter .headerlink { display: none; }

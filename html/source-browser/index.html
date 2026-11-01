@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Isotherm++ · C++ source browser · Isotherm++</title><style>
+:root { --indigo:#27316a; --teal:#087f82; --ink:#27334e; --bg:#f4f6fd; }
+* { box-sizing:border-box; }
+body { font:15px/1.5 system-ui, sans-serif; margin:0; background:var(--bg); color:var(--ink); }
+header { color:white; background:var(--indigo); padding:18px 28px; }
+header h1 { font-size:21px; margin:0 0 8px; }
+header a { color:#c8f5f1; margin-right:18px; }
+.main { max-width:1320px; margin:auto; padding:24px; }
+.path { color:#62708e; font-size:13px; overflow-wrap:anywhere; margin:0 0 12px; }
+.card { background:white; border:1px solid #dfe5f3; border-radius:19px; overflow:hidden; box-shadow:0 5px 22px #27316a11; }
+.browse { display:flex; gap:20px; flex-wrap:wrap; padding:15px 22px; background:#e9f7f5; }
+a { color:var(--teal); } a:hover { text-decoration:underline; }
+.code-table { border-collapse:collapse; width:100%; font:13px/1.7 'DejaVu Sans Mono', Consolas, monospace; }
+.code-table tr:hover { background:#e9f9f6; }
+.line-no { user-select:none; white-space:nowrap; text-align:right; vertical-align:top;
+  padding:0 14px; width:65px; background:#f3f5fc; border-right:1px solid #dce2ee; }
+.line-no a { color:#6b7794; text-decoration:none; }
+.code-text { white-space:pre; padding:0 16px; }
+.code-table tr:target { background:#ffefd9; }
+.code-text a { text-decoration:none; border-bottom:1px dotted #087f82; font-weight:600; }
+.code-text a:hover { background:#d4f0ec; }
+.t-comment { color:#697b81; } .t-string { color:#9f582f; } .t-number { color:#9a4485; }
+.t-keyword { color:#27316a; font-weight:650; } .t-name { color:#204e81; }
+.t-operator { color:#4c5771; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+.cards section { border:1px solid #dfe5f3; background:white; padding:16px; border-radius:14px; }
+.cards h2 { font-size:15px; margin-top:0; }
+.small { color:#63718d; font-size:13px; }
+@media(max-width:650px) { .main{padding:12px}header{padding:16px}.code-table{font-size:11px} }
+</style></head><body><header><h1>Isotherm++ · C++ source browser</h1></header><main class="main"><p>Actual C++20 source with line numbers, indexed symbol references and a link to the original file. Project-local includes open the corresponding C++ header.</p><div class="cards"><section><h2>type.hpp</h2><p class="small">src/isotherm/core/type.hpp</p><a href="src/isotherm/core/type.hpp.html">Browse code →</a></section>
+<section><h2>gas_constant.hpp</h2><p class="small">src/isotherm/core/gas_constant.hpp</p><a href="src/isotherm/core/gas_constant.hpp.html">Browse code →</a></section>
+<section><h2>error.hpp</h2><p class="small">src/isotherm/core/error.hpp</p><a href="src/isotherm/core/error.hpp.html">Browse code →</a></section>
+<section><h2>traits.hpp</h2><p class="small">src/isotherm/core/traits.hpp</p><a href="src/isotherm/core/traits.hpp.html">Browse code →</a></section>
+<section><h2>concepts.hpp</h2><p class="small">src/isotherm/core/concepts.hpp</p><a href="src/isotherm/core/concepts.hpp.html">Browse code →</a></section>
+<section><h2>validation.hpp</h2><p class="small">src/isotherm/core/validation.hpp</p><a href="src/isotherm/core/validation.hpp.html">Browse code →</a></section>
+<section><h2>evaluation.hpp</h2><p class="small">src/isotherm/core/evaluation.hpp</p><a href="src/isotherm/core/evaluation.hpp.html">Browse code →</a></section>
+<section><h2>parameters.hpp</h2><p class="small">src/isotherm/core/parameters.hpp</p><a href="src/isotherm/core/parameters.hpp.html">Browse code →</a></section>
+<section><h2>Henry.hpp</h2><p class="small">src/isotherm/models/OneParameter/Henry.hpp</p><a href="src/isotherm/models/OneParameter/Henry.hpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/OneParameter/Henry/main.cpp</p><a href="Examples/OneParameter/Henry/main.cpp.html">Browse code →</a></section>
+<section><h2>test_henry.cpp</h2><p class="small">IsothermTest/OneParameter/Henry/test_henry.cpp</p><a href="IsothermTest/OneParameter/Henry/test_henry.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/TwoParameters/AntiLangmuir/main.cpp</p><a href="Examples/TwoParameters/AntiLangmuir/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/TwoParameters/DubininRadushkevich/main.cpp</p><a href="Examples/TwoParameters/DubininRadushkevich/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/TwoParameters/Elovich/main.cpp</p><a href="Examples/TwoParameters/Elovich/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/TwoParameters/Temkin/main.cpp</p><a href="Examples/TwoParameters/Temkin/main.cpp.html">Browse code →</a></section>
+<section><h2>test_elovich.cpp</h2><p class="small">IsothermTest/TwoParameters/Elovich/test_elovich.cpp</p><a href="IsothermTest/TwoParameters/Elovich/test_elovich.cpp.html">Browse code →</a></section>
+<section><h2>test_temkin.cpp</h2><p class="small">IsothermTest/TwoParameters/Temkin/test_temkin.cpp</p><a href="IsothermTest/TwoParameters/Temkin/test_temkin.cpp.html">Browse code →</a></section>
+<section><h2>test_dubinin_radushkevich.cpp</h2><p class="small">IsothermTest/TwoParameters/DubininRadushkevich/test_dubinin_radushkevich.cpp</p><a href="IsothermTest/TwoParameters/DubininRadushkevich/test_dubinin_radushkevich.cpp.html">Browse code →</a></section>
+<section><h2>test_anti_langmuir.cpp</h2><p class="small">IsothermTest/TwoParameters/AntiLangmuir/test_anti_langmuir.cpp</p><a href="IsothermTest/TwoParameters/AntiLangmuir/test_anti_langmuir.cpp.html">Browse code →</a></section>
+<section><h2>isotherm.hpp</h2><p class="small">src/isotherm/isotherm.hpp</p><a href="src/isotherm/isotherm.hpp.html">Browse code →</a></section>
+<section><h2>FritzSchlunderV.hpp</h2><p class="small">src/isotherm/models/FiveParameters/FritzSchlunderV.hpp</p><a href="src/isotherm/models/FiveParameters/FritzSchlunderV.hpp.html">Browse code →</a></section>
+<section><h2>Baudu.hpp</h2><p class="small">src/isotherm/models/FourParameters/Baudu.hpp</p><a href="src/isotherm/models/FourParameters/Baudu.hpp.html">Browse code →</a></section>
+<section><h2>DualSiteLangmuir.hpp</h2><p class="small">src/isotherm/models/FourParameters/DualSiteLangmuir.hpp</p><a href="src/isotherm/models/FourParameters/DualSiteLangmuir.hpp.html">Browse code →</a></section>
+<section><h2>FritzSchlunderIV.hpp</h2><p class="small">src/isotherm/models/FourParameters/FritzSchlunderIV.hpp</p><a href="src/isotherm/models/FourParameters/FritzSchlunderIV.hpp.html">Browse code →</a></section>
+<section><h2>JensenSeaton.hpp</h2><p class="small">src/isotherm/models/FourParameters/JensenSeaton.hpp</p><a href="src/isotherm/models/FourParameters/JensenSeaton.hpp.html">Browse code →</a></section>
+<section><h2>MarczewskiJaroniec.hpp</h2><p class="small">src/isotherm/models/FourParameters/MarczewskiJaroniec.hpp</p><a href="src/isotherm/models/FourParameters/MarczewskiJaroniec.hpp.html">Browse code →</a></section>
+<section><h2>Oswin.hpp</h2><p class="small">src/isotherm/models/FourParameters/Oswin.hpp</p><a href="src/isotherm/models/FourParameters/Oswin.hpp.html">Browse code →</a></section>
+<section><h2>Smith.hpp</h2><p class="small">src/isotherm/models/FourParameters/Smith.hpp</p><a href="src/isotherm/models/FourParameters/Smith.hpp.html">Browse code →</a></section>
+<section><h2>Virial.hpp</h2><p class="small">src/isotherm/models/FourParameters/Virial.hpp</p><a href="src/isotherm/models/FourParameters/Virial.hpp.html">Browse code →</a></section>
+<section><h2>WeberVanVliet.hpp</h2><p class="small">src/isotherm/models/FourParameters/WeberVanVliet.hpp</p><a href="src/isotherm/models/FourParameters/WeberVanVliet.hpp.html">Browse code →</a></section>
+<section><h2>WilsonVST.hpp</h2><p class="small">src/isotherm/models/FourParameters/WilsonVST.hpp</p><a href="src/isotherm/models/FourParameters/WilsonVST.hpp.html">Browse code →</a></section>
+<section><h2>TripleSiteLangmuir.hpp</h2><p class="small">src/isotherm/models/SixParameters/TripleSiteLangmuir.hpp</p><a href="src/isotherm/models/SixParameters/TripleSiteLangmuir.hpp.html">Browse code →</a></section>
+<section><h2>Aranovich.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Aranovich.hpp</p><a href="src/isotherm/models/ThreeParameters/Aranovich.hpp.html">Browse code →</a></section>
+<section><h2>BingelWalton.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/BingelWalton.hpp</p><a href="src/isotherm/models/ThreeParameters/BingelWalton.hpp.html">Browse code →</a></section>
+<section><h2>BrouersSotolongo.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/BrouersSotolongo.hpp</p><a href="src/isotherm/models/ThreeParameters/BrouersSotolongo.hpp.html">Browse code →</a></section>
+<section><h2>BrunauerEmmettTeller.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/BrunauerEmmettTeller.hpp</p><a href="src/isotherm/models/ThreeParameters/BrunauerEmmettTeller.hpp.html">Browse code →</a></section>
+<section><h2>DubininAstakhov.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/DubininAstakhov.hpp</p><a href="src/isotherm/models/ThreeParameters/DubininAstakhov.hpp.html">Browse code →</a></section>
+<section><h2>FloryHuggins.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/FloryHuggins.hpp</p><a href="src/isotherm/models/ThreeParameters/FloryHuggins.hpp.html">Browse code →</a></section>
+<section><h2>FloryHugginsVST.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/FloryHugginsVST.hpp</p><a href="src/isotherm/models/ThreeParameters/FloryHugginsVST.hpp.html">Browse code →</a></section>
+<section><h2>FowlerGuggenheim.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/FowlerGuggenheim.hpp</p><a href="src/isotherm/models/ThreeParameters/FowlerGuggenheim.hpp.html">Browse code →</a></section>
+<section><h2>FrenkelHalseyHill.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/FrenkelHalseyHill.hpp</p><a href="src/isotherm/models/ThreeParameters/FrenkelHalseyHill.hpp.html">Browse code →</a></section>
+<section><h2>FritzSchlunder.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/FritzSchlunder.hpp</p><a href="src/isotherm/models/ThreeParameters/FritzSchlunder.hpp.html">Browse code →</a></section>
+<section><h2>Frumkin.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Frumkin.hpp</p><a href="src/isotherm/models/ThreeParameters/Frumkin.hpp.html">Browse code →</a></section>
+<section><h2>GAB.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/GAB.hpp</p><a href="src/isotherm/models/ThreeParameters/GAB.hpp.html">Browse code →</a></section>
+<section><h2>Henderson.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Henderson.hpp</p><a href="src/isotherm/models/ThreeParameters/Henderson.hpp.html">Browse code →</a></section>
+<section><h2>Hill.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Hill.hpp</p><a href="src/isotherm/models/ThreeParameters/Hill.hpp.html">Browse code →</a></section>
+<section><h2>HillDeBoer.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/HillDeBoer.hpp</p><a href="src/isotherm/models/ThreeParameters/HillDeBoer.hpp.html">Browse code →</a></section>
+<section><h2>HollKrich.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/HollKrich.hpp</p><a href="src/isotherm/models/ThreeParameters/HollKrich.hpp.html">Browse code →</a></section>
+<section><h2>Jossens.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Jossens.hpp</p><a href="src/isotherm/models/ThreeParameters/Jossens.hpp.html">Browse code →</a></section>
+<section><h2>Khan.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Khan.hpp</p><a href="src/isotherm/models/ThreeParameters/Khan.hpp.html">Browse code →</a></section>
+<section><h2>Kiselev.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Kiselev.hpp</p><a href="src/isotherm/models/ThreeParameters/Kiselev.hpp.html">Browse code →</a></section>
+<section><h2>KobleCorrigan.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/KobleCorrigan.hpp</p><a href="src/isotherm/models/ThreeParameters/KobleCorrigan.hpp.html">Browse code →</a></section>
+<section><h2>LangmuirFreundlich.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/LangmuirFreundlich.hpp</p><a href="src/isotherm/models/ThreeParameters/LangmuirFreundlich.hpp.html">Browse code →</a></section>
+<section><h2>MacMillanTeller.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/MacMillanTeller.hpp</p><a href="src/isotherm/models/ThreeParameters/MacMillanTeller.hpp.html">Browse code →</a></section>
+<section><h2>OBrienMyers.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/OBrienMyers.hpp</p><a href="src/isotherm/models/ThreeParameters/OBrienMyers.hpp.html">Browse code →</a></section>
+<section><h2>Quadratic.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Quadratic.hpp</p><a href="src/isotherm/models/ThreeParameters/Quadratic.hpp.html">Browse code →</a></section>
+<section><h2>RadkePrausnitsI.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/RadkePrausnitsI.hpp</p><a href="src/isotherm/models/ThreeParameters/RadkePrausnitsI.hpp.html">Browse code →</a></section>
+<section><h2>RadkePrausnitsII.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/RadkePrausnitsII.hpp</p><a href="src/isotherm/models/ThreeParameters/RadkePrausnitsII.hpp.html">Browse code →</a></section>
+<section><h2>RadkePrausnitsIII.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/RadkePrausnitsIII.hpp</p><a href="src/isotherm/models/ThreeParameters/RadkePrausnitsIII.hpp.html">Browse code →</a></section>
+<section><h2>RedlichPeterson.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/RedlichPeterson.hpp</p><a href="src/isotherm/models/ThreeParameters/RedlichPeterson.hpp.html">Browse code →</a></section>
+<section><h2>Sips.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Sips.hpp</p><a href="src/isotherm/models/ThreeParameters/Sips.hpp.html">Browse code →</a></section>
+<section><h2>Toth.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Toth.hpp</p><a href="src/isotherm/models/ThreeParameters/Toth.hpp.html">Browse code →</a></section>
+<section><h2>Unilan.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/Unilan.hpp</p><a href="src/isotherm/models/ThreeParameters/Unilan.hpp.html">Browse code →</a></section>
+<section><h2>ValenzuelaMyers.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/ValenzuelaMyers.hpp</p><a href="src/isotherm/models/ThreeParameters/ValenzuelaMyers.hpp.html">Browse code →</a></section>
+<section><h2>ViethSladek.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/ViethSladek.hpp</p><a href="src/isotherm/models/ThreeParameters/ViethSladek.hpp.html">Browse code →</a></section>
+<section><h2>coverage_solver.hpp</h2><p class="small">src/isotherm/models/ThreeParameters/detail/coverage_solver.hpp</p><a href="src/isotherm/models/ThreeParameters/detail/coverage_solver.hpp.html">Browse code →</a></section>
+<section><h2>AntiLangmuir.hpp</h2><p class="small">src/isotherm/models/TwoParameters/AntiLangmuir.hpp</p><a href="src/isotherm/models/TwoParameters/AntiLangmuir.hpp.html">Browse code →</a></section>
+<section><h2>DubininRadushkevich.hpp</h2><p class="small">src/isotherm/models/TwoParameters/DubininRadushkevich.hpp</p><a href="src/isotherm/models/TwoParameters/DubininRadushkevich.hpp.html">Browse code →</a></section>
+<section><h2>Elovich.hpp</h2><p class="small">src/isotherm/models/TwoParameters/Elovich.hpp</p><a href="src/isotherm/models/TwoParameters/Elovich.hpp.html">Browse code →</a></section>
+<section><h2>Freundlich.hpp</h2><p class="small">src/isotherm/models/TwoParameters/Freundlich.hpp</p><a href="src/isotherm/models/TwoParameters/Freundlich.hpp.html">Browse code →</a></section>
+<section><h2>Halsey.hpp</h2><p class="small">src/isotherm/models/TwoParameters/Halsey.hpp</p><a href="src/isotherm/models/TwoParameters/Halsey.hpp.html">Browse code →</a></section>
+<section><h2>HarkinJura.hpp</h2><p class="small">src/isotherm/models/TwoParameters/HarkinJura.hpp</p><a href="src/isotherm/models/TwoParameters/HarkinJura.hpp.html">Browse code →</a></section>
+<section><h2>Jovanovic.hpp</h2><p class="small">src/isotherm/models/TwoParameters/Jovanovic.hpp</p><a href="src/isotherm/models/TwoParameters/Jovanovic.hpp.html">Browse code →</a></section>
+<section><h2>Langmuir.hpp</h2><p class="small">src/isotherm/models/TwoParameters/Langmuir.hpp</p><a href="src/isotherm/models/TwoParameters/Langmuir.hpp.html">Browse code →</a></section>
+<section><h2>Temkin.hpp</h2><p class="small">src/isotherm/models/TwoParameters/Temkin.hpp</p><a href="src/isotherm/models/TwoParameters/Temkin.hpp.html">Browse code →</a></section>
+<section><h2>Volmer.hpp</h2><p class="small">src/isotherm/models/TwoParameters/Volmer.hpp</p><a href="src/isotherm/models/TwoParameters/Volmer.hpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/TwoParameters/Freundlich/main.cpp</p><a href="Examples/TwoParameters/Freundlich/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/TwoParameters/Halsey/main.cpp</p><a href="Examples/TwoParameters/Halsey/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/TwoParameters/HarkinJura/main.cpp</p><a href="Examples/TwoParameters/HarkinJura/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/TwoParameters/Jovanovic/main.cpp</p><a href="Examples/TwoParameters/Jovanovic/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/TwoParameters/Langmuir/main.cpp</p><a href="Examples/TwoParameters/Langmuir/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/TwoParameters/Volmer/main.cpp</p><a href="Examples/TwoParameters/Volmer/main.cpp.html">Browse code →</a></section>
+<section><h2>test_freundlich.cpp</h2><p class="small">IsothermTest/TwoParameters/Freundlich/test_freundlich.cpp</p><a href="IsothermTest/TwoParameters/Freundlich/test_freundlich.cpp.html">Browse code →</a></section>
+<section><h2>test_halsey.cpp</h2><p class="small">IsothermTest/TwoParameters/Halsey/test_halsey.cpp</p><a href="IsothermTest/TwoParameters/Halsey/test_halsey.cpp.html">Browse code →</a></section>
+<section><h2>test_harkin_jura.cpp</h2><p class="small">IsothermTest/TwoParameters/HarkinJura/test_harkin_jura.cpp</p><a href="IsothermTest/TwoParameters/HarkinJura/test_harkin_jura.cpp.html">Browse code →</a></section>
+<section><h2>test_jovanovic.cpp</h2><p class="small">IsothermTest/TwoParameters/Jovanovic/test_jovanovic.cpp</p><a href="IsothermTest/TwoParameters/Jovanovic/test_jovanovic.cpp.html">Browse code →</a></section>
+<section><h2>test_langmuir.cpp</h2><p class="small">IsothermTest/TwoParameters/Langmuir/test_langmuir.cpp</p><a href="IsothermTest/TwoParameters/Langmuir/test_langmuir.cpp.html">Browse code →</a></section>
+<section><h2>test_volmer.cpp</h2><p class="small">IsothermTest/TwoParameters/Volmer/test_volmer.cpp</p><a href="IsothermTest/TwoParameters/Volmer/test_volmer.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Aranovich/main.cpp</p><a href="Examples/ThreeParameters/Aranovich/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/BingelWalton/main.cpp</p><a href="Examples/ThreeParameters/BingelWalton/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/BrouersSotolongo/main.cpp</p><a href="Examples/ThreeParameters/BrouersSotolongo/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/BrunauerEmmettTeller/main.cpp</p><a href="Examples/ThreeParameters/BrunauerEmmettTeller/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/DubininAstakhov/main.cpp</p><a href="Examples/ThreeParameters/DubininAstakhov/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/FloryHuggins/main.cpp</p><a href="Examples/ThreeParameters/FloryHuggins/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/FloryHugginsVST/main.cpp</p><a href="Examples/ThreeParameters/FloryHugginsVST/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/FowlerGuggenheim/main.cpp</p><a href="Examples/ThreeParameters/FowlerGuggenheim/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/FrenkelHalseyHill/main.cpp</p><a href="Examples/ThreeParameters/FrenkelHalseyHill/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/FritzSchlunder/main.cpp</p><a href="Examples/ThreeParameters/FritzSchlunder/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Frumkin/main.cpp</p><a href="Examples/ThreeParameters/Frumkin/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/GAB/main.cpp</p><a href="Examples/ThreeParameters/GAB/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Henderson/main.cpp</p><a href="Examples/ThreeParameters/Henderson/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Hill/main.cpp</p><a href="Examples/ThreeParameters/Hill/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/HillDeBoer/main.cpp</p><a href="Examples/ThreeParameters/HillDeBoer/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/HollKrich/main.cpp</p><a href="Examples/ThreeParameters/HollKrich/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Jossens/main.cpp</p><a href="Examples/ThreeParameters/Jossens/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Khan/main.cpp</p><a href="Examples/ThreeParameters/Khan/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Kiselev/main.cpp</p><a href="Examples/ThreeParameters/Kiselev/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/KobleCorrigan/main.cpp</p><a href="Examples/ThreeParameters/KobleCorrigan/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/LangmuirFreundlich/main.cpp</p><a href="Examples/ThreeParameters/LangmuirFreundlich/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/MacMillanTeller/main.cpp</p><a href="Examples/ThreeParameters/MacMillanTeller/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/OBrienMyers/main.cpp</p><a href="Examples/ThreeParameters/OBrienMyers/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Quadratic/main.cpp</p><a href="Examples/ThreeParameters/Quadratic/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/RadkePrausnitsI/main.cpp</p><a href="Examples/ThreeParameters/RadkePrausnitsI/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/RadkePrausnitsII/main.cpp</p><a href="Examples/ThreeParameters/RadkePrausnitsII/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/RadkePrausnitsIII/main.cpp</p><a href="Examples/ThreeParameters/RadkePrausnitsIII/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/RedlichPeterson/main.cpp</p><a href="Examples/ThreeParameters/RedlichPeterson/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Sips/main.cpp</p><a href="Examples/ThreeParameters/Sips/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Toth/main.cpp</p><a href="Examples/ThreeParameters/Toth/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/Unilan/main.cpp</p><a href="Examples/ThreeParameters/Unilan/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/ValenzuelaMyers/main.cpp</p><a href="Examples/ThreeParameters/ValenzuelaMyers/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/ThreeParameters/ViethSladek/main.cpp</p><a href="Examples/ThreeParameters/ViethSladek/main.cpp.html">Browse code →</a></section>
+<section><h2>test_aranovich.cpp</h2><p class="small">IsothermTest/ThreeParameters/Aranovich/test_aranovich.cpp</p><a href="IsothermTest/ThreeParameters/Aranovich/test_aranovich.cpp.html">Browse code →</a></section>
+<section><h2>test_bingel_walton.cpp</h2><p class="small">IsothermTest/ThreeParameters/BingelWalton/test_bingel_walton.cpp</p><a href="IsothermTest/ThreeParameters/BingelWalton/test_bingel_walton.cpp.html">Browse code →</a></section>
+<section><h2>test_brouers_sotolongo.cpp</h2><p class="small">IsothermTest/ThreeParameters/BrouersSotolongo/test_brouers_sotolongo.cpp</p><a href="IsothermTest/ThreeParameters/BrouersSotolongo/test_brouers_sotolongo.cpp.html">Browse code →</a></section>
+<section><h2>test_brunauer_emmett_teller.cpp</h2><p class="small">IsothermTest/ThreeParameters/BrunauerEmmettTeller/test_brunauer_emmett_teller.cpp</p><a href="IsothermTest/ThreeParameters/BrunauerEmmettTeller/test_brunauer_emmett_teller.cpp.html">Browse code →</a></section>
+<section><h2>test_dubinin_astakhov.cpp</h2><p class="small">IsothermTest/ThreeParameters/DubininAstakhov/test_dubinin_astakhov.cpp</p><a href="IsothermTest/ThreeParameters/DubininAstakhov/test_dubinin_astakhov.cpp.html">Browse code →</a></section>
+<section><h2>test_flory_huggins.cpp</h2><p class="small">IsothermTest/ThreeParameters/FloryHuggins/test_flory_huggins.cpp</p><a href="IsothermTest/ThreeParameters/FloryHuggins/test_flory_huggins.cpp.html">Browse code →</a></section>
+<section><h2>test_flory_huggins_v_s_t.cpp</h2><p class="small">IsothermTest/ThreeParameters/FloryHugginsVST/test_flory_huggins_v_s_t.cpp</p><a href="IsothermTest/ThreeParameters/FloryHugginsVST/test_flory_huggins_v_s_t.cpp.html">Browse code →</a></section>
+<section><h2>test_fowler_guggenheim.cpp</h2><p class="small">IsothermTest/ThreeParameters/FowlerGuggenheim/test_fowler_guggenheim.cpp</p><a href="IsothermTest/ThreeParameters/FowlerGuggenheim/test_fowler_guggenheim.cpp.html">Browse code →</a></section>
+<section><h2>test_frenkel_halsey_hill.cpp</h2><p class="small">IsothermTest/ThreeParameters/FrenkelHalseyHill/test_frenkel_halsey_hill.cpp</p><a href="IsothermTest/ThreeParameters/FrenkelHalseyHill/test_frenkel_halsey_hill.cpp.html">Browse code →</a></section>
+<section><h2>test_fritz_schlunder.cpp</h2><p class="small">IsothermTest/ThreeParameters/FritzSchlunder/test_fritz_schlunder.cpp</p><a href="IsothermTest/ThreeParameters/FritzSchlunder/test_fritz_schlunder.cpp.html">Browse code →</a></section>
+<section><h2>test_frumkin.cpp</h2><p class="small">IsothermTest/ThreeParameters/Frumkin/test_frumkin.cpp</p><a href="IsothermTest/ThreeParameters/Frumkin/test_frumkin.cpp.html">Browse code →</a></section>
+<section><h2>test_g_a_b.cpp</h2><p class="small">IsothermTest/ThreeParameters/GAB/test_g_a_b.cpp</p><a href="IsothermTest/ThreeParameters/GAB/test_g_a_b.cpp.html">Browse code →</a></section>
+<section><h2>test_henderson.cpp</h2><p class="small">IsothermTest/ThreeParameters/Henderson/test_henderson.cpp</p><a href="IsothermTest/ThreeParameters/Henderson/test_henderson.cpp.html">Browse code →</a></section>
+<section><h2>test_hill.cpp</h2><p class="small">IsothermTest/ThreeParameters/Hill/test_hill.cpp</p><a href="IsothermTest/ThreeParameters/Hill/test_hill.cpp.html">Browse code →</a></section>
+<section><h2>test_hill_de_boer.cpp</h2><p class="small">IsothermTest/ThreeParameters/HillDeBoer/test_hill_de_boer.cpp</p><a href="IsothermTest/ThreeParameters/HillDeBoer/test_hill_de_boer.cpp.html">Browse code →</a></section>
+<section><h2>test_holl_krich.cpp</h2><p class="small">IsothermTest/ThreeParameters/HollKrich/test_holl_krich.cpp</p><a href="IsothermTest/ThreeParameters/HollKrich/test_holl_krich.cpp.html">Browse code →</a></section>
+<section><h2>test_jossens.cpp</h2><p class="small">IsothermTest/ThreeParameters/Jossens/test_jossens.cpp</p><a href="IsothermTest/ThreeParameters/Jossens/test_jossens.cpp.html">Browse code →</a></section>
+<section><h2>test_khan.cpp</h2><p class="small">IsothermTest/ThreeParameters/Khan/test_khan.cpp</p><a href="IsothermTest/ThreeParameters/Khan/test_khan.cpp.html">Browse code →</a></section>
+<section><h2>test_kiselev.cpp</h2><p class="small">IsothermTest/ThreeParameters/Kiselev/test_kiselev.cpp</p><a href="IsothermTest/ThreeParameters/Kiselev/test_kiselev.cpp.html">Browse code →</a></section>
+<section><h2>test_koble_corrigan.cpp</h2><p class="small">IsothermTest/ThreeParameters/KobleCorrigan/test_koble_corrigan.cpp</p><a href="IsothermTest/ThreeParameters/KobleCorrigan/test_koble_corrigan.cpp.html">Browse code →</a></section>
+<section><h2>test_langmuir_freundlich.cpp</h2><p class="small">IsothermTest/ThreeParameters/LangmuirFreundlich/test_langmuir_freundlich.cpp</p><a href="IsothermTest/ThreeParameters/LangmuirFreundlich/test_langmuir_freundlich.cpp.html">Browse code →</a></section>
+<section><h2>test_mac_millan_teller.cpp</h2><p class="small">IsothermTest/ThreeParameters/MacMillanTeller/test_mac_millan_teller.cpp</p><a href="IsothermTest/ThreeParameters/MacMillanTeller/test_mac_millan_teller.cpp.html">Browse code →</a></section>
+<section><h2>test_o_brien_myers.cpp</h2><p class="small">IsothermTest/ThreeParameters/OBrienMyers/test_o_brien_myers.cpp</p><a href="IsothermTest/ThreeParameters/OBrienMyers/test_o_brien_myers.cpp.html">Browse code →</a></section>
+<section><h2>test_quadratic.cpp</h2><p class="small">IsothermTest/ThreeParameters/Quadratic/test_quadratic.cpp</p><a href="IsothermTest/ThreeParameters/Quadratic/test_quadratic.cpp.html">Browse code →</a></section>
+<section><h2>test_radke_prausnits_i.cpp</h2><p class="small">IsothermTest/ThreeParameters/RadkePrausnitsI/test_radke_prausnits_i.cpp</p><a href="IsothermTest/ThreeParameters/RadkePrausnitsI/test_radke_prausnits_i.cpp.html">Browse code →</a></section>
+<section><h2>test_radke_prausnits_i_i.cpp</h2><p class="small">IsothermTest/ThreeParameters/RadkePrausnitsII/test_radke_prausnits_i_i.cpp</p><a href="IsothermTest/ThreeParameters/RadkePrausnitsII/test_radke_prausnits_i_i.cpp.html">Browse code →</a></section>
+<section><h2>test_radke_prausnits_i_i_i.cpp</h2><p class="small">IsothermTest/ThreeParameters/RadkePrausnitsIII/test_radke_prausnits_i_i_i.cpp</p><a href="IsothermTest/ThreeParameters/RadkePrausnitsIII/test_radke_prausnits_i_i_i.cpp.html">Browse code →</a></section>
+<section><h2>test_redlich_peterson.cpp</h2><p class="small">IsothermTest/ThreeParameters/RedlichPeterson/test_redlich_peterson.cpp</p><a href="IsothermTest/ThreeParameters/RedlichPeterson/test_redlich_peterson.cpp.html">Browse code →</a></section>
+<section><h2>test_sips.cpp</h2><p class="small">IsothermTest/ThreeParameters/Sips/test_sips.cpp</p><a href="IsothermTest/ThreeParameters/Sips/test_sips.cpp.html">Browse code →</a></section>
+<section><h2>test_toth.cpp</h2><p class="small">IsothermTest/ThreeParameters/Toth/test_toth.cpp</p><a href="IsothermTest/ThreeParameters/Toth/test_toth.cpp.html">Browse code →</a></section>
+<section><h2>test_unilan.cpp</h2><p class="small">IsothermTest/ThreeParameters/Unilan/test_unilan.cpp</p><a href="IsothermTest/ThreeParameters/Unilan/test_unilan.cpp.html">Browse code →</a></section>
+<section><h2>test_valenzuela_myers.cpp</h2><p class="small">IsothermTest/ThreeParameters/ValenzuelaMyers/test_valenzuela_myers.cpp</p><a href="IsothermTest/ThreeParameters/ValenzuelaMyers/test_valenzuela_myers.cpp.html">Browse code →</a></section>
+<section><h2>test_vieth_sladek.cpp</h2><p class="small">IsothermTest/ThreeParameters/ViethSladek/test_vieth_sladek.cpp</p><a href="IsothermTest/ThreeParameters/ViethSladek/test_vieth_sladek.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FourParameters/Baudu/main.cpp</p><a href="Examples/FourParameters/Baudu/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FourParameters/DualSiteLangmuir/main.cpp</p><a href="Examples/FourParameters/DualSiteLangmuir/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FourParameters/FritzSchlunderIV/main.cpp</p><a href="Examples/FourParameters/FritzSchlunderIV/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FourParameters/JensenSeaton/main.cpp</p><a href="Examples/FourParameters/JensenSeaton/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FourParameters/MarczewskiJaroniec/main.cpp</p><a href="Examples/FourParameters/MarczewskiJaroniec/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FourParameters/Oswin/main.cpp</p><a href="Examples/FourParameters/Oswin/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FourParameters/Smith/main.cpp</p><a href="Examples/FourParameters/Smith/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FourParameters/Virial/main.cpp</p><a href="Examples/FourParameters/Virial/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FourParameters/WeberVanVliet/main.cpp</p><a href="Examples/FourParameters/WeberVanVliet/main.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FourParameters/WilsonVST/main.cpp</p><a href="Examples/FourParameters/WilsonVST/main.cpp.html">Browse code →</a></section>
+<section><h2>test_baudu.cpp</h2><p class="small">IsothermTest/FourParameters/Baudu/test_baudu.cpp</p><a href="IsothermTest/FourParameters/Baudu/test_baudu.cpp.html">Browse code →</a></section>
+<section><h2>test_dual_site_langmuir.cpp</h2><p class="small">IsothermTest/FourParameters/DualSiteLangmuir/test_dual_site_langmuir.cpp</p><a href="IsothermTest/FourParameters/DualSiteLangmuir/test_dual_site_langmuir.cpp.html">Browse code →</a></section>
+<section><h2>test_fritz_schlunder_i_v.cpp</h2><p class="small">IsothermTest/FourParameters/FritzSchlunderIV/test_fritz_schlunder_i_v.cpp</p><a href="IsothermTest/FourParameters/FritzSchlunderIV/test_fritz_schlunder_i_v.cpp.html">Browse code →</a></section>
+<section><h2>test_jensen_seaton.cpp</h2><p class="small">IsothermTest/FourParameters/JensenSeaton/test_jensen_seaton.cpp</p><a href="IsothermTest/FourParameters/JensenSeaton/test_jensen_seaton.cpp.html">Browse code →</a></section>
+<section><h2>test_marczewski_jaroniec.cpp</h2><p class="small">IsothermTest/FourParameters/MarczewskiJaroniec/test_marczewski_jaroniec.cpp</p><a href="IsothermTest/FourParameters/MarczewskiJaroniec/test_marczewski_jaroniec.cpp.html">Browse code →</a></section>
+<section><h2>test_oswin.cpp</h2><p class="small">IsothermTest/FourParameters/Oswin/test_oswin.cpp</p><a href="IsothermTest/FourParameters/Oswin/test_oswin.cpp.html">Browse code →</a></section>
+<section><h2>test_smith.cpp</h2><p class="small">IsothermTest/FourParameters/Smith/test_smith.cpp</p><a href="IsothermTest/FourParameters/Smith/test_smith.cpp.html">Browse code →</a></section>
+<section><h2>test_virial.cpp</h2><p class="small">IsothermTest/FourParameters/Virial/test_virial.cpp</p><a href="IsothermTest/FourParameters/Virial/test_virial.cpp.html">Browse code →</a></section>
+<section><h2>test_weber_van_vliet.cpp</h2><p class="small">IsothermTest/FourParameters/WeberVanVliet/test_weber_van_vliet.cpp</p><a href="IsothermTest/FourParameters/WeberVanVliet/test_weber_van_vliet.cpp.html">Browse code →</a></section>
+<section><h2>test_wilson_v_s_t.cpp</h2><p class="small">IsothermTest/FourParameters/WilsonVST/test_wilson_v_s_t.cpp</p><a href="IsothermTest/FourParameters/WilsonVST/test_wilson_v_s_t.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/FiveParameters/FritzSchlunderV/main.cpp</p><a href="Examples/FiveParameters/FritzSchlunderV/main.cpp.html">Browse code →</a></section>
+<section><h2>test_fritz_schlunder_v.cpp</h2><p class="small">IsothermTest/FiveParameters/FritzSchlunderV/test_fritz_schlunder_v.cpp</p><a href="IsothermTest/FiveParameters/FritzSchlunderV/test_fritz_schlunder_v.cpp.html">Browse code →</a></section>
+<section><h2>main.cpp</h2><p class="small">Examples/SixParameters/TripleSiteLangmuir/main.cpp</p><a href="Examples/SixParameters/TripleSiteLangmuir/main.cpp.html">Browse code →</a></section>
+<section><h2>test_triple_site_langmuir.cpp</h2><p class="small">IsothermTest/SixParameters/TripleSiteLangmuir/test_triple_site_langmuir.cpp</p><a href="IsothermTest/SixParameters/TripleSiteLangmuir/test_triple_site_langmuir.cpp.html">Browse code →</a></section></div></main></body></html>

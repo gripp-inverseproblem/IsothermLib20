@@ -1,0 +1,87 @@
+/*
+==============================================================================
+Name        : isotherm.css
+Authors     : Joao Flavio Vasconcellos
+Version     : 2.0.0
+Description : Responsive scientific manual styled to the approved brand.
+
+Copyright   : Copyright (C) 2026 Joao Flavio Vasconcellos
+Licence     : MIT License (see LICENSE.txt)
+SPDX-License-Identifier: MIT
+==============================================================================
+*/
+:root {
+  --pst-color-primary: #27316a;
+  --pst-color-secondary: #087f82;
+  --isotherm-indigo: #27316a;
+  --isotherm-turquoise: #087f82;
+  --isotherm-coral: #df735f;
+  --isotherm-lilac: #e6eaf5;
+  --isotherm-ink: #27334e;
+  --isotherm-bg: #fafbff;
+}
+html[data-theme="dark"] { --pst-color-primary: #85ded8; --pst-color-secondary: #df735f; }
+body { color: var(--isotherm-ink); background: #f1f3fa; }
+.bd-main .bd-content .bd-article-container { max-width: 970px; }
+.bd-content { background: #fcfdff; }
+/* The header graphic has a true alpha channel; no contrasting card. */
+.bd-sidebar-primary, .bd-sidebar-primary .sidebar-primary-items__start,
+.bd-sidebar-primary .sidebar-primary-items__end {
+  background: var(--isotherm-indigo) !important;
+  color: #f7f8ff !important;
+}
+.bd-sidebar-primary a, .bd-sidebar-primary .nav-link,
+.bd-sidebar-primary .sidebar-primary-item,
+.bd-sidebar-primary .caption, .bd-sidebar-primary .toctree-l1 > a {
+  color: #f5f6ff !important;
+}
+.bd-sidebar-primary a:hover, .bd-sidebar-primary a.current,
+.bd-sidebar-primary .active > a { background: #3a457d !important; color: white !important; border-radius: 16px; }
+.bd-sidebar-primary .navbar-brand img,
+.bd-sidebar-primary .navbar-brand img.logo__image,
+.bd-sidebar-primary .navbar-brand { background: transparent !important; border: 0 !important; box-shadow: none !important; }
+.bd-sidebar-primary .navbar-brand img { object-fit: contain; max-height: 85px; width: min(100%, 255px); }
+.bd-sidebar-primary .search-button, .bd-sidebar-primary input { border-radius: 22px !important; }
+.bd-article { counter-reset: isotherm-heading; }
+.bd-article h1 { color: var(--isotherm-indigo); font-weight: 760; letter-spacing: -.025em; }
+/* Numbered circular headings and titles remain vertically centred. */
+.bd-article h2 {
+  display: flex; align-items: center; gap: 15px;
+  color: var(--isotherm-indigo); letter-spacing: -.012em;
+  border: 0; margin-top: 2.8rem; padding-bottom: 0;
+}
+.bd-article h2::before {
+  counter-increment: isotherm-heading; content: counter(isotherm-heading);
+  width: 42px; height: 42px; min-width: 42px;
+  display: inline-flex; justify-content: center; align-items: center;
+  border-radius: 50%; background: var(--isotherm-indigo);
+  color: white; font-size: 17px; line-height: 1; font-weight: 750;
+}
+.bd-article h3 { color: #087f82; }
+.bd-article a, .bd-article a:visited { color: var(--isotherm-turquoise); }
+.bd-article .admonition, .bd-article pre,
+.bd-article .highlight, .bd-article figure,
+.bd-article table, .bd-article .math-wrapper { border-radius: 20px; }
+.bd-article .admonition { border-left: 5px solid #087f82; overflow: hidden; background: #f2fbfa; }
+.bd-article .admonition.warning { border-left-color: #df735f; background: #fff6f3; }
+.bd-article .highlight { overflow: auto; }
+.bd-article .math-wrapper { background: #f3f7ff; padding: 18px; overflow-x: auto; }
+.bd-article figure { background: white; border: 1px solid #e2e6f2; padding: 18px; overflow: hidden; }
+.bd-article figure figcaption { text-align: center; color: #4d5977; font-size: .91em; }
+.bd-article .table { overflow-x: auto; }
+/* The complete circle is already contained in the alpha-padded PNG. */
+.isotherm-brand-icon img { max-width: 190px; max-height: 190px; object-fit: contain; }
+.isotherm-brand-icon, .isotherm-brand-icon img { background: transparent !important; border: 0 !important; box-shadow: none !important; }
+.isotherm-hero { border-radius: 34px; background: linear-gradient(120deg,#f1f0ff,#fbfcff 65%,#eaf8f5); padding: 26px 30px; margin: 20px 0 38px; }
+.isotherm-eyebrow { color: #087f82; font-weight: 760; text-transform: uppercase; letter-spacing: .1em; font-size: .84em; }
+@media (max-width: 920px) { .bd-article h2::before { width: 36px; min-width: 36px; height: 36px; font-size: 15px; } }
+@media (max-width: 600px) {
+  .bd-article h2 { gap: 10px; }
+  .isotherm-hero { border-radius: 23px; padding: 18px; }
+  .bd-article figure { padding: 9px; }
+}
+
+/* Source browser links are an HTML-only navigation component. */
+.isotherm-source-tools { display:flex; flex-wrap:nowrap; gap:8px; margin:14px 0 20px; overflow-x:auto; }
+.isotherm-source-action { display:inline-flex; flex:0 0 auto; align-items:center; white-space:nowrap; padding:8px 12px; border:1px solid #a9dbd8; border-radius:14px; background:#e8f7f5; font-weight:650; text-decoration:none !important; }
+.isotherm-source-action:hover { background:#d4f0ec; }
