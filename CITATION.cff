@@ -1,0 +1,30 @@
+# Citation metadata for Isotherm++ (read by GitHub and Zenodo).
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+type: software
+title: "Isotherm++"
+version: "2.0.0"
+date-released: "2026-11-01"
+abstract: >-
+  Isotherm++ is a header-only C++20 library of single-component adsorption
+  isotherm models for mass transport simulations. Each model returns the
+  adsorbed amount and its exact derivative with respect to the independent
+  variable, validates its parameters and gives read and replace access to them.
+  All models share one interface, so the isotherm used by a solver can be
+  changed without modifying the solver.
+authors:
+  - family-names: "Vasconcellos"
+    given-names: "João Flávio"
+    affiliation: "Instituto Politécnico, Rio de Janeiro State University"
+    email: "jflavio@iprj.uerj.br"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+repository-code: "https://github.com/gripp-inverseproblem/isotermlib20"
+license: MIT
+keywords:
+  - adsorption isotherm
+  - isotherm models
+  - mass transfer
+  - fixed-bed adsorption
+  - numerical simulation
+  - inverse problems
+  - C++20
