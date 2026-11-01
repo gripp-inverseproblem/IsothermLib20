@@ -13,33 +13,30 @@
 Verification and validation
 ===========================
 
-The I03 validation showed 28/28 successful CTest registrations in the
-user's WSL environment. The I05 code adds 22 three-parameter suites with
-five tests apiece, plus algebraic-equivalence and implicit-residual tests.
-A GoogleTest-independent smoke programme independently checks the reference
-uptake of all 22 new models.
+The CTest suite combines a GoogleTest test file for every model, smoke
+programmes that check reference values without GoogleTest, tests of the
+parameter interface and of the declared algebraic equivalences, residual
+checks of the implicit equations, and checks of the documentation sources.
+It is run with ``cmake --build build --target run_all_tests``. The library
+compiles without warnings under GCC 13 and 15 and Clang 18 with strict warning
+flags, and the test suite runs cleanly under AddressSanitizer and
+UndefinedBehaviorSanitizer.
 
-In the package-construction environment, GCC built the examples and the
-smoke programme, 5/5 available CTest registrations passed, and 114 new
-GoogleTest-style cases passed through a temporary local compatibility harness.
-This harness is not a substitute for running the actual GoogleTest framework.
-Full GoogleTest, Sphinx HTML and PDF verification remain necessary on the WSL
-installation before release. The compiled-figure target was exercised for all
-22 additional models.
+An independent audit compared every equation and derivative with reference
+implementations written from the published equations and evaluated with
+60-digit arithmetic, and checked the derivatives symbolically. The audit
+included extreme inputs, from about 1e-300 to 1e300, near poles and in the
+limits of each domain.
 
-Each historical two- and three-parameter equation has been compared algebraically with
-the corresponding original Isotherm++ source file. This does not remove the
-need to investigate discrepancies between published model conventions,
-particularly the decreasing legacy Jovanovic branch, the singular Halsey
-form, dimensionless input in Dubinin–Radushkevich and the constrained
-implicit Elovich coverage branch. Current tests cover finite-difference
-slopes, independently evaluated identities and invalid input/parameter
-domains; they are not a substitute for experimental validation.
+Model-specific conventions that differ from some published forms, such as the
+decreasing Jovanovic branch, the singular Halsey form, the dimensionless input
+of Dubinin–Radushkevich and the constrained implicit Elovich coverage branch,
+are documented on the corresponding model pages. The tests verify the
+implementation of the stated equations; they are not a substitute for
+experimental validation.
 
-The documentation target ``docs-figures`` regenerates model plots from
-compiled C++20 executables rather than from independent Python model
-equations. The catalogue-order check enforces ascending parameter-group order
-and case-insensitive alphabetical model order; the PDF assembly uses the same
-explicit ordering. ``docs-html`` builds Sphinx HTML and ``docs-pdf`` renders
-A4 PDF from HTML/CSS using WeasyPrint. Both are pending confirmation with the
-user's Sphinx virtual environment.
+The documentation target ``docs-figures`` regenerates the model plots from the
+compiled C++20 examples rather than from independent Python model equations.
+``docs-html`` builds the HTML manual with Sphinx, and ``docs-pdf`` renders the
+A4 PDF from HTML and CSS with WeasyPrint, redrawing each model's plots from the
+same example data.

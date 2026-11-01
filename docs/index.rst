@@ -30,18 +30,16 @@ Isotherm++ 2.0
    The scientific documentation and C++ API reference are maintained from
    a common reStructuredText source tree for the HTML and PDF manuals.
 
-.. important:: Development status
+Each model provides the adsorbed amount, its exact derivative with respect to
+the independent variable, validated parameter domains and read and replace
+access to its parameters. All models share one interface based on C++20
+concepts and traits, without inheritance or virtual functions, so the isotherm
+used by a transport solver can be changed without modifying the solver.
 
-   **I07** provides 56 named models across six groups of adjustable parameters.
-   The scientific review is proceeding model by model. The current HTML
-   preview includes the revised Henry documentation, a numerically evaluated
-   parameter-sensitivity curve, and a first C++ source-browser prototype.
-   Algebraic equivalences, historical formula conventions, primary-source
-   verification and numerical robustness remain under scientific review.
-   Parameter fitting is not yet part of the core release.
-
-The new architecture uses C++20 concepts and traits, without model inheritance
-or virtual functions. Parameter fitting is a planned, optional module.
+Each model page gives the original publication, the equation implemented, its
+derivative, the admissible domain, the numerical parameter sensitivities and a
+compiled C++20 example. The library covers single-component equilibrium; it
+does not include a parameter-fitting module.
 
 .. toctree::
    :maxdepth: 2

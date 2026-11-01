@@ -107,12 +107,12 @@ Temperature supplied to an evaluation function is not a stored parameter.
 
 .. note::
 
-   The historical IsothermLib catalogue comprises 37 names (one one-parameter,
-   eight two-parameter, 22 three-parameter, four four-parameter, and two
-   five-parameter entries). The two five-parameter names implement the very
-   same algebraic formula in the archived source and are therefore not two
-   independent mathematical model families.
+   Some models are the same equation under a different parametrisation. They
+   keep their usual names, and the equivalence is stated on the model pages.
+   The following equivalences are also checked by the tests: Hill, Sips,
+   Koble–Corrigan and Holl–Krich are equivalent to Langmuir–Freundlich; the
+   three-parameter Fritz–Schlünder model is equivalent to Redlich–Peterson;
+   and Khan is equivalent to Radke–Prausnitz I.
 
-   Additional models are explicitly marked as literature-derived conventions.
    The order is by stored parameter count and then by model name; a
    six-parameter group is necessary for triple-site Langmuir.
